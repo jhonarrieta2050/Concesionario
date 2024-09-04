@@ -9,19 +9,25 @@ public abstract class Vehiculos {
     protected String modelo;
     protected String placa;
     protected String cilindrado;
+    protected double precio;
     protected HashSet<Accesorios> adicionales;
 
-    public Vehiculos(String marca, String modelo, String placa, String cilindrado) {
+    public Vehiculos(String marca, String modelo, String placa, String cilindrado,double precio) {
         this.marca = marca;
         this.modelo = modelo;
         this.placa = placa;
         this.cilindrado = cilindrado;
+        this.precio = precio;
+        adicionales = new HashSet();
     }
 
-
+    private void actualizarDatos(){
+        
+    }
 
     public void agregarAdicionales(Accesorios accesorios){
         adicionales.add(accesorios);
+        precio += accesorios.getPrecio();
     }
 
     @Override
@@ -53,6 +59,14 @@ public abstract class Vehiculos {
 
     public HashSet<Accesorios> getAdicionales() {
         return adicionales;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
     
     
