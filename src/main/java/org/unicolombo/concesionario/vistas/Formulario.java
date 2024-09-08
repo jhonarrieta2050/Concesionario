@@ -10,7 +10,7 @@ import org.unicolombo.concesionario.controladores.ControladorVerificador;
 
 public class Formulario extends javax.swing.JFrame {
      private bienvenidaGui bienvenida;
-     private AccionComprar compra = new AccionComprar();
+     private ListaDeCarrosGui compra = new ListaDeCarrosGui();
      static Usuario usuarioActual;
     /**
      * Creates new form Formulario
