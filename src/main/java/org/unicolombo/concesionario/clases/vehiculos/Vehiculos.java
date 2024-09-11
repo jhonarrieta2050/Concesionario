@@ -11,13 +11,14 @@ public abstract class Vehiculos {
     protected String cilindrado;
     protected double precio;
     protected HashSet<Accesorios> adicionales;
-
-    public Vehiculos(String marca, String modelo, String placa, String cilindrado,double precio) {
+    protected String distribuidor;
+    public Vehiculos(String marca, String modelo, String placa, String cilindrado,double precio,String distribuidor) {
         this.marca = marca;
         this.modelo = modelo;
         this.placa = placa;
         this.cilindrado = cilindrado;
         this.precio = precio;
+        this.distribuidor = distribuidor;
         adicionales = new HashSet();
     }
 
@@ -67,6 +68,22 @@ public abstract class Vehiculos {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getCilindrado() {
+        return cilindrado;
+    }
+
+    public void setCilindrado(String cilindrado) {
+        this.cilindrado = cilindrado;
+    }
+
+    public String getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(String distribuidor) {
+        this.distribuidor = distribuidor;
     }
     
     

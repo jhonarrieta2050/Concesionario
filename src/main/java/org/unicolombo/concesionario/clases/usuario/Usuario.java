@@ -20,6 +20,12 @@ public class Usuario {
         this.cartera = cartera;
         vehiculosEnPropiedad = new HashSet();
     };
+    
+    public Usuario(String nombre, int Dni,boolean vendedor){
+        this.nombre = nombre;
+        this.DNI = Dni;
+        this.vendedor = vendedor;
+    }
 
     public String getNombre() {
         return nombre;

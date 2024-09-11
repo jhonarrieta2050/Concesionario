@@ -1,7 +1,13 @@
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv@startuml
+@startuml
 Vehiculo <|-- Automoviles
 Vehiculo *-- Accesorios
 Usuario o-- Vehiculo
+Usuario <-- Factura
+Vehiculo <-- Factura
+Vehiculo <-- BaseDatos       
+Factura <-- BaseDatos    
+Usuario <-- BaseDatos
+
 class Usuario{
        - String nombre
        - int DNI;
@@ -32,4 +38,28 @@ class Accesorios{
 
 
 }
+
+ class Factura {
+        - Usuario usuario
+        - Vehiculos vehiculo
+        - LocalDate fecha
+        - Usuario vendedor
+        
+        + Factura(Usuario usuario, Vehiculos vehiculo, Usuario vendedor)
+    }
+
+ class BaseDatos {
+        - static HashSet<Vehiculos> catalogo
+        - static HashSet<Vehiculos> vehiculosSedidos
+        - static ArrayList<Accesorios> accesorios
+        - static HashSet<factura> facturas
+
+        + static HashSet<Vehiculos> getCatalogo()
+        + static void setVehiculos(Vehiculos vehiculos)
+        + static ArrayList<Accesorios> getAccesorios()
+        + static HashSet<Vehiculos> getVehiculosSedidos()
+        + static void setVehiculosSedidos(Vehiculos vehiculosSedido)
+        + static HashSet<factura> getFacturas()
+        + static void setFacturas(factura facturass)
+    }
 @enduml

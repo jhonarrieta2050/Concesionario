@@ -4,9 +4,11 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import org.unicolombo.concesionario.clases.compras.factura;
 import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
 import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
 import org.unicolombo.concesionario.controladores.ControladorVerificador;
+import org.unicolombo.concesionario.repositorio.BaseDatos;
 
 public class VehiculoAgregados extends javax.swing.JFrame {
 
@@ -14,6 +16,7 @@ public class VehiculoAgregados extends javax.swing.JFrame {
     private ListaDeCarrosGui comprar;
     private AgregarAdicionales adicionales = new AgregarAdicionales();
     private sederVehiculoGui seder = new sederVehiculoGui();
+    private facturaGui facturaGui = new facturaGui();
 
     public ListaDeCarrosGui getComprar() {
         return comprar;
@@ -185,6 +188,14 @@ public class VehiculoAgregados extends javax.swing.JFrame {
             error.setText("Fondos insuficientes");
             return;
         }
+        
+        factura facturaDeCompra = new factura(Formulario.getUsuarioActual(), vehiculos, FormularioVendedor.vendedorActual);
+        BaseDatos.setFacturas(facturaDeCompra);
+        this.setVisible(false);
+        facturaGui.colocarDatos(facturaDeCompra);
+        facturaGui.setVisible(true);
+        facturaGui.setLocationRelativeTo(null);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

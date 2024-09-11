@@ -74,24 +74,24 @@ public class ListaDeCarrosGui extends javax.swing.JFrame {
         Tabla.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Marca", "Modelo", "Cilindrado", "Placa", "Precio"
+                "Marca", "Modelo", "Cilindrado", "Placa", "Precio", "Vendedor"
             }
         ));
         jScrollPane1.setViewportView(Tabla);
@@ -117,7 +117,7 @@ public class ListaDeCarrosGui extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +161,7 @@ public class ListaDeCarrosGui extends javax.swing.JFrame {
     
     catalogo.forEach(v -> {
        
-        model.addRow(new Object[]{v.getModelo(), v.getMarca(), v.getCilindraje(), v.getPlaca(), v.getPrecio()});
+        model.addRow(new Object[]{v.getModelo(), v.getMarca(), v.getCilindraje(), v.getPlaca(), v.getPrecio(), v.getDistribuidor()});
     });
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -176,7 +176,8 @@ public class ListaDeCarrosGui extends javax.swing.JFrame {
             String cilindraje = (String) Tabla.getValueAt(selectedRow, 2);
             String placa = (String) Tabla.getValueAt(selectedRow, 3);
             double precio = (double) Tabla.getValueAt(selectedRow, 4);
-            Vehiculos vehiculos = new Automoviles(marca,modelo,placa,cilindraje,precio);
+            String vendedor = (String) Tabla.getValueAt(selectedRow, 5);
+            Vehiculos vehiculos = new Automoviles(marca,modelo,placa,cilindraje,precio,vendedor);
             vehiculoAgregarUi.setVehiculos(vehiculos);
             vehiculoAgregarUi.setComprar(this);
             vehiculoAgregarUi.setVisible(true);

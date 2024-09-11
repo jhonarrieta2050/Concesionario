@@ -6,6 +6,7 @@ import org.unicolombo.concesionario.repositorio.BaseDatos;
 
 import java.util.HashSet;
 import java.util.Optional;
+import org.unicolombo.concesionario.clases.compras.factura;
 import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
 
 public class ControladorInformacion {
@@ -26,5 +27,9 @@ public class ControladorInformacion {
     }
     public static void guardarVehiculoSedido(Vehiculos vehiculo){
         BaseDatos.setVehiculosSedidos(vehiculo);
+    }
+    
+    public static void guardarFactura(factura facturaa){
+        BaseDatos.setFacturas(facturaa);
     }
 }
