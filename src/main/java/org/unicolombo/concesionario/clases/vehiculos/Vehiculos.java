@@ -3,6 +3,7 @@ package org.unicolombo.concesionario.clases.vehiculos;
 import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 public abstract class Vehiculos {
     protected String marca;
@@ -84,6 +85,44 @@ public abstract class Vehiculos {
 
     public void setDistribuidor(String distribuidor) {
         this.distribuidor = distribuidor;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.marca);
+        hash = 71 * hash + Objects.hashCode(this.modelo);
+        hash = 71 * hash + Objects.hashCode(this.placa);
+        hash = 71 * hash + Objects.hashCode(this.cilindrado);
+        hash = 71 * hash + Objects.hashCode(this.distribuidor);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vehiculos other = (Vehiculos) obj;
+        if (!Objects.equals(this.marca, other.marca)) {
+            return false;
+        }
+        if (!Objects.equals(this.modelo, other.modelo)) {
+            return false;
+        }
+        if (!Objects.equals(this.placa, other.placa)) {
+            return false;
+        }
+        if (!Objects.equals(this.cilindrado, other.cilindrado)) {
+            return false;
+        }
+        return Objects.equals(this.distribuidor, other.distribuidor);
     }
     
     

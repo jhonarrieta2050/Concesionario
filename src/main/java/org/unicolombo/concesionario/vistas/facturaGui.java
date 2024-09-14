@@ -4,7 +4,13 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashSet;
 import org.unicolombo.concesionario.clases.compras.factura;
+import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
+import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
+import org.unicolombo.concesionario.controladores.ControladorInformacion;
 
 /**
  *
@@ -20,6 +26,30 @@ public class facturaGui extends javax.swing.JFrame {
     }
 
     public void colocarDatos(factura facturas){
+        MarcaText.setText(facturas.getVehiculo().getMarca());
+        ModeloText.setText(facturas.getVehiculo().getModelo());
+        CilindradoText.setText(facturas.getVehiculo().getCilindrado());
+        PlacaText.setText(facturas.getVehiculo().getPlaca());
+        PrecioText.setText(Double.toString(facturas.getVehiculo().getPrecio()));
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+         String fechaEnTexto = facturas.getFecha().format(formatter); 
+        
+        FechaText.setText(fechaEnTexto);
+        
+        CompradorText.setText(facturas.getUsuario().getNombre());
+        CompraText.setText(Double.toString(facturas.getVehiculo().getPrecio()));
+        VendedorText.setText(facturas.getVendedor());
+        
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) Tabla.getModel();
+        
+        model.setRowCount(0);
+        
+        facturas.getVehiculo().getAdicionales().forEach(a -> {
+            model.addRow(new Object[]{a.getNombre()});
+        });
+        
+        
         
     }
     @SuppressWarnings("unchecked")
@@ -40,7 +70,7 @@ public class facturaGui extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabla = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -91,7 +121,7 @@ public class facturaGui extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel10.setText("Adicionales:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -103,7 +133,7 @@ public class facturaGui extends javax.swing.JFrame {
                 "Nombre"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tabla);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel11.setText("Informacion General:");
@@ -140,15 +170,20 @@ public class facturaGui extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton2.setText("Volver");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
@@ -176,7 +211,6 @@ public class facturaGui extends javax.swing.JFrame {
                             .addComponent(CompradorText)
                             .addComponent(VendedorText)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -275,6 +309,12 @@ public class facturaGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        Formulario.bienvenida.setVisible(true);
+        Formulario.bienvenida.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -320,6 +360,7 @@ public class facturaGui extends javax.swing.JFrame {
     private javax.swing.JLabel ModeloText;
     private javax.swing.JLabel PlacaText;
     private javax.swing.JLabel PrecioText;
+    private javax.swing.JTable Tabla;
     private javax.swing.JLabel VendedorText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -340,6 +381,5 @@ public class facturaGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

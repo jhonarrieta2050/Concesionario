@@ -42,4 +42,6 @@ public class ControladorVerificador {
     public static boolean verificarPresupuesto(double precioDelAuto, double carteraDelUsuario){
         return precioDelAuto <= carteraDelUsuario;
     }
+    
+   
 }

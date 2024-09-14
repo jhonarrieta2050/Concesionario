@@ -32,4 +32,7 @@ public class ControladorInformacion {
     public static void guardarFactura(factura facturaa){
         BaseDatos.setFacturas(facturaa);
     }
+    public static void eliminarVehiculo(Vehiculos vehiculos){
+        BaseDatos.getCatalogo().remove(vehiculos);
+    }
 }

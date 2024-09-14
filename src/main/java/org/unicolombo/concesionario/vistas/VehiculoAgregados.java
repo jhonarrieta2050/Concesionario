@@ -7,6 +7,7 @@ package org.unicolombo.concesionario.vistas;
 import org.unicolombo.concesionario.clases.compras.factura;
 import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
 import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
+import org.unicolombo.concesionario.controladores.ControladorInformacion;
 import org.unicolombo.concesionario.controladores.ControladorVerificador;
 import org.unicolombo.concesionario.repositorio.BaseDatos;
 
@@ -188,8 +189,8 @@ public class VehiculoAgregados extends javax.swing.JFrame {
             error.setText("Fondos insuficientes");
             return;
         }
-        
-        factura facturaDeCompra = new factura(Formulario.getUsuarioActual(), vehiculos, FormularioVendedor.vendedorActual);
+        ControladorInformacion.eliminarVehiculo(vehiculos);
+        factura facturaDeCompra = new factura(Formulario.getUsuarioActual(), vehiculos, vehiculos.getDistribuidor());
         BaseDatos.setFacturas(facturaDeCompra);
         this.setVisible(false);
         facturaGui.colocarDatos(facturaDeCompra);
