@@ -41,6 +41,8 @@ public class ComprarVehiculoUser extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(76, 175, 255));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("FORMULARIO DE COMPRA");
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
