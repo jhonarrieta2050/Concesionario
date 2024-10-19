@@ -15,17 +15,17 @@ import org.unicolombo.concesionario.controladores.ControladorVerificador;
  */
 public class AgregarVehiculoConcesionarioGui extends javax.swing.JFrame {
 
-    private FormularioVendedor formulario;
+    private LoginAdministradorGui formulario;
     
     public AgregarVehiculoConcesionarioGui() {
         initComponents();
     }
 
-    public FormularioVendedor getFormulario() {
+    public LoginAdministradorGui getFormulario() {
         return formulario;
     }
 
-    public void setFormulario(FormularioVendedor formulario) {
+    public void setFormulario(LoginAdministradorGui formulario) {
         this.formulario = formulario;
     }
 
@@ -236,7 +236,7 @@ public class AgregarVehiculoConcesionarioGui extends javax.swing.JFrame {
             return;
         }
         
-        ControladorInformacion.guardarVehiculo(new Automoviles(marca,modelo,placa,cilindraje,Double.parseDouble(Precio),FormularioVendedor.vendedorActual.getNombre()));
+        ControladorInformacion.guardarVehiculo(new Automoviles(marca,modelo,placa,cilindraje,Double.parseDouble(Precio),LoginAdministradorGui.vendedorActual.getNombre()));
         
         Error.setText("El vehiculo a sido agregado a el concesionario");
         

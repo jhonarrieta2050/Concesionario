@@ -16,15 +16,11 @@ import org.unicolombo.concesionario.controladores.ControladorInformacion;
  */
 public class AgregarAdicionales extends javax.swing.JFrame {
 
-    private VehiculoAgregados vehiculoAgregarUi;
+   
 
-    public VehiculoAgregados getVehiculoAgregados() {
-        return vehiculoAgregarUi;
-    }
+    
 
-    public void setVehiculoAgregados(VehiculoAgregados vehiculoAgregados) {
-        this.vehiculoAgregarUi = vehiculoAgregados;
-    }
+   
     
     public AgregarAdicionales() {
         initComponents();
@@ -180,10 +176,6 @@ public class AgregarAdicionales extends javax.swing.JFrame {
             double precio = (double) Tabla.getValueAt(selectedRow, 2);
             
             Accesorios accesorios = new Accesorios(nombre,descripcion,precio);
-            vehiculoAgregarUi.vehiculos.agregarAdicionales(accesorios);
-            vehiculoAgregarUi.colocarValores();
-            vehiculoAgregarUi.setVisible(true);
-            vehiculoAgregarUi.setLocationRelativeTo(null);
             this.setVisible(false);
         }else{
             Bien.setText("Debe elegir un accesorio");
@@ -191,9 +183,7 @@ public class AgregarAdicionales extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        vehiculoAgregarUi.setVisible(true);
-        vehiculoAgregarUi.setLocationRelativeTo(this);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -8,10 +8,10 @@ package org.unicolombo.concesionario.vistas;
  *
  * @author jhon
  */
-public class bienvenidaGui extends javax.swing.JFrame {
-    private final Formulario formulario = new Formulario();
-    private final FormularioVendedor formularioVendedor = new FormularioVendedor();
-    public bienvenidaGui() {
+public class PrincipalLoginGui extends javax.swing.JFrame {
+    private final LoginUsuarioGui loginUsuarioGui = new LoginUsuarioGui();
+    private final LoginAdministradorGui formularioVendedor = new LoginAdministradorGui();
+    public PrincipalLoginGui() {
         initComponents();
     }
 
@@ -129,10 +129,10 @@ public class bienvenidaGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        formulario.setBienvenida(this);
+        loginUsuarioGui.setPrincipalLoginGui(this);
         this.setVisible(false);
-        formulario.setVisible(true);
-        formulario.setLocationRelativeTo(null);
+        loginUsuarioGui.setVisible(true);
+        loginUsuarioGui.setLocationRelativeTo(null);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

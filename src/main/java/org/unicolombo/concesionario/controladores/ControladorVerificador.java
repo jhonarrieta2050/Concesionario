@@ -8,20 +8,20 @@ import java.util.Scanner;
 public class ControladorVerificador {
     private static Scanner sc = new Scanner(System.in);
 
-    public static boolean verificarUsuario(String nombre, String dni, String direccion, String telefono) {
+    public static boolean verificarUsuario(String nombre, String apellido, String correo, String contrasena) {
         if(nombre.isBlank() || !nombre.matches("[a-zA-Z]+") ){
             return false;
         }
         
-        if(dni.isBlank() || !dni.matches("[0-9]+")){
+        if(apellido.isBlank() || !apellido.matches("[a-zA-Z]+") ){
             return false;
         }
         
-        if(direccion.isBlank()){
+        if(correo.isBlank() || !correo.matches("[a-zA-Z]+") ){
             return false;
         }
         
-        if(telefono.isBlank() || !dni.matches("[0-9]+")){
+        if(contrasena.isBlank() || !contrasena.matches("[a-zA-Z]+") ){
             return false;
         }
         return true;

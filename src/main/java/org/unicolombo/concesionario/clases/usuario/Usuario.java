@@ -4,28 +4,32 @@ import java.util.HashSet;
 import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
 
 public class Usuario {
+    private int idUsuario;
     private String nombre;
-    private int DNI;
-    private String Direccion;
-    private int telefono;
-    private boolean vendedor;
+    private String apellido;
+    private String correo;
+    private String contrasena;
     private double cartera;
     private HashSet<Vehiculos> vehiculosEnPropiedad;
-    public Usuario(String nombre, int DNI, String Direccion, int telefono, boolean vendedor,double cartera) {
+
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String contrasena, double cartera, HashSet<Vehiculos> vehiculosEnPropiedad) {
+        this.idUsuario = idUsuario;
         this.nombre = nombre;
-        this.DNI = DNI;
-        this.Direccion = Direccion;
-        this.telefono = telefono;
-        this.vendedor = vendedor;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.contrasena = contrasena;
         this.cartera = cartera;
-        vehiculosEnPropiedad = new HashSet();
-    };
-    
-    public Usuario(String nombre, int Dni,boolean vendedor){
-        this.nombre = nombre;
-        this.DNI = Dni;
-        this.vendedor = vendedor;
+        this.vehiculosEnPropiedad = vehiculosEnPropiedad;
     }
+
+    public Usuario(String nombre, String apellido, String correo, String contrasena) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.contrasena = contrasena;
+    }
+    
+    
 
     public String getNombre() {
         return nombre;
@@ -35,36 +39,28 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public int getDNI() {
-        return DNI;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setDNI(int DNI) {
-        this.DNI = DNI;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public String getDireccion() {
-        return Direccion;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public int getTelefono() {
-        return telefono;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public boolean isVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(boolean vendedor) {
-        this.vendedor = vendedor;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public double getCartera() {
@@ -82,5 +78,16 @@ public class Usuario {
     public void setVehiculosEnPropiedad(HashSet<Vehiculos> vehiculosEnPropiedad) {
         this.vehiculosEnPropiedad = vehiculosEnPropiedad;
     }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
+    
+    
      
 }

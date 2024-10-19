@@ -13,19 +13,25 @@ import org.unicolombo.concesionario.controladores.ControladorInformacion;
  *
  * @author jhon
  */
-public class ListaDeCarrosGui extends javax.swing.JFrame {
+public class ListadoVehiculosGui extends javax.swing.JFrame {
 
-    private Formulario formulario;
-    private VehiculoAgregados vehiculoAgregarUi = new VehiculoAgregados();
-    public ListaDeCarrosGui() {
+    
+    
+    private OpcionesVehiculosCompraGui opcionesVehiculosCompraGui;
+
+    public OpcionesVehiculosCompraGui getOpcionesVehiculosCompraGui() {
+        return opcionesVehiculosCompraGui;
+    }
+
+    public void setOpcionesVehiculosCompraGui(OpcionesVehiculosCompraGui opcionesVehiculosCompraGui) {
+        this.opcionesVehiculosCompraGui = opcionesVehiculosCompraGui;
+    }
+    
+    
+    public ListadoVehiculosGui() {
         initComponents();
     }
 
-    public void setFormulario(Formulario formulario) {
-        this.formulario = formulario;
-    }
-
-    
     
 
     /**
@@ -200,11 +206,7 @@ public class ListaDeCarrosGui extends javax.swing.JFrame {
             double precio = (double) Tabla.getValueAt(selectedRow, 4);
             String vendedor = (String) Tabla.getValueAt(selectedRow, 5);
             Vehiculos vehiculos = new Automoviles(marca,modelo,placa,cilindraje,precio,vendedor);
-            vehiculoAgregarUi.setVehiculos(vehiculos);
-            vehiculoAgregarUi.setComprar(this);
-            vehiculoAgregarUi.setVisible(true);
-            vehiculoAgregarUi.colocarValores();
-            vehiculoAgregarUi.setLocationRelativeTo(null);
+            
             this.setVisible(false);
         }else{
             Bien.setText("Debe elegir un vehiculo");
@@ -213,9 +215,7 @@ public class ListaDeCarrosGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        formulario.setVisible(true);
-        formulario.setLocationRelativeTo(null);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -235,21 +235,23 @@ public class ListaDeCarrosGui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListaDeCarrosGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListadoVehiculosGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListaDeCarrosGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListadoVehiculosGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListaDeCarrosGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListadoVehiculosGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListaDeCarrosGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListadoVehiculosGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListaDeCarrosGui().setVisible(true);
+                new ListadoVehiculosGui().setVisible(true);
             }
         });
     }

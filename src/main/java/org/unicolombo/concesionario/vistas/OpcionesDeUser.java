@@ -4,15 +4,22 @@
  */
 package org.unicolombo.concesionario.vistas;
 
-/**
- *
- * @author 57301
- */
+   
 public class OpcionesDeUser extends javax.swing.JFrame {
+    
+    private LoginUsuarioGui loginUsuarioGui;
+    private OpcionesVehiculosCompraGui opcionesVehiculosCompraGui = new OpcionesVehiculosCompraGui();
 
-    /**
-     * Creates new form OpcionesDeUser
-     */
+    public LoginUsuarioGui getLoginUsuarioGui() {
+        return loginUsuarioGui;
+    }
+
+    public void setLoginUsuarioGui(LoginUsuarioGui loginUsuarioGui) {
+        this.loginUsuarioGui = loginUsuarioGui;
+    }
+    
+    
+    
     public OpcionesDeUser() {
         initComponents();
     }
@@ -52,9 +59,14 @@ public class OpcionesDeUser extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Ceder vehiculo");
+        jButton2.setText("Vender Vehiculo");
 
         jButton3.setText("Ver historial de compras");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -129,8 +141,16 @@ public class OpcionesDeUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        opcionesVehiculosCompraGui.setOpcionesDeUser(this);
+        this.setVisible(false);
+        opcionesVehiculosCompraGui.setVisible(true);
+        opcionesVehiculosCompraGui.setLocationRelativeTo(null);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -3,6 +3,7 @@ package org.unicolombo.concesionario.clases.vehiculos.accesorios;
 public class Accesorios {
     private String nombre;
     private String descripcion;
+    private String tipoVehiculo;
     private double precio;
 
     public Accesorios() {
@@ -14,6 +15,16 @@ public class Accesorios {
         this.descripcion = descripcion;
         this.precio = precio;
     }
+
+    public String getTipoVehiculo() {
+        return tipoVehiculo;
+    }
+
+    public void setTipoVehiculo(String tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
+    }
+    
+    
 
     public String getNombre() {
         return nombre;

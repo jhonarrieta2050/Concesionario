@@ -8,9 +8,19 @@ import java.util.HashSet;
 import java.util.Optional;
 import org.unicolombo.concesionario.clases.compras.factura;
 import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
+import org.unicolombo.concesionario.repositorio.QuaryRepositoryImp;
+import org.unicolombo.concesionario.repositorio.interfaces.ComandRepositoryInterface;
+import org.unicolombo.concesionario.repositorio.interfaces.QuaryRepositoryInterface;
 
 public class ControladorInformacion {
-
+    
+    private ComandRepositoryInterface comandRepositoryInterface;
+    private QuaryRepositoryInterface quaryRepositoryInterface;
+    
+    
+    
+    
+    
     public static HashSet<Vehiculos> ObtenerVehiculos(){
         return BaseDatos.getCatalogo();
     }
