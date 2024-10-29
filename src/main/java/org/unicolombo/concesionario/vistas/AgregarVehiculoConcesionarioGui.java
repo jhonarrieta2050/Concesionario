@@ -4,10 +4,9 @@
  */
 package org.unicolombo.concesionario.vistas;
 
-import org.unicolombo.concesionario.clases.vehiculos.Automoviles;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
-import org.unicolombo.concesionario.controladores.ControladorInformacion;
-import org.unicolombo.concesionario.controladores.ControladorVerificador;
+import org.unicolombo.concesionario.clases.vehiculo.modelo.Automoviles;
+import org.unicolombo.concesionario.utilidades.ControladorInformacion;
+import org.unicolombo.concesionario.utilidades.ControladorVerificador;
 
 /**
  *

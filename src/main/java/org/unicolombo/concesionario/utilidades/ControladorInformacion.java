@@ -1,16 +1,14 @@
-package org.unicolombo.concesionario.controladores;
+package org.unicolombo.concesionario.utilidades;
 
 import java.util.ArrayList;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
-import org.unicolombo.concesionario.repositorio.BaseDatos;
+import org.unicolombo.concesionario.clases.vehiculo.modelo.Vehiculos;
 
 import java.util.HashSet;
 import java.util.Optional;
-import org.unicolombo.concesionario.clases.compras.factura;
-import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
-import org.unicolombo.concesionario.repositorio.QuaryRepositoryImp;
-import org.unicolombo.concesionario.repositorio.interfaces.ComandRepositoryInterface;
-import org.unicolombo.concesionario.repositorio.interfaces.QuaryRepositoryInterface;
+import org.unicolombo.concesionario.clases.facturas.modelo.factura;
+import org.unicolombo.concesionario.clases.accesorio.modelo.Accesorios;
+import org.unicolombo.concesionario.clases.interfaces.ComandRepositoryInterface;
+import org.unicolombo.concesionario.clases.interfaces.QuaryRepositoryInterface;
 
 public class ControladorInformacion {
     

@@ -1,7 +1,7 @@
-package org.unicolombo.concesionario.clases.usuario;
+package org.unicolombo.concesionario.clases.usuario.modelo;
 
 import java.util.HashSet;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
+import org.unicolombo.concesionario.clases.vehiculo.modelo.Vehiculos;
 
 public class Usuario {
     private int idUsuario;

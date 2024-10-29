@@ -5,9 +5,9 @@
 package org.unicolombo.concesionario.vistas;
 
 import java.util.HashSet;
-import org.unicolombo.concesionario.clases.vehiculos.Automoviles;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
-import org.unicolombo.concesionario.controladores.ControladorInformacion;
+import org.unicolombo.concesionario.clases.vehiculo.modelo.Automoviles;
+import org.unicolombo.concesionario.clases.vehiculo.modelo.Vehiculos;
+import org.unicolombo.concesionario.utilidades.ControladorInformacion;
 
 /**
  *

@@ -1,12 +1,12 @@
-package org.unicolombo.concesionario.repositorio;
+package org.unicolombo.concesionario.utilidades;
 
 import java.util.ArrayList;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
+import org.unicolombo.concesionario.clases.vehiculo.modelo.Vehiculos;
 
 import java.util.HashSet;
-import org.unicolombo.concesionario.clases.compras.factura;
-import org.unicolombo.concesionario.clases.vehiculos.Automoviles;
-import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
+import org.unicolombo.concesionario.clases.facturas.modelo.factura;
+import org.unicolombo.concesionario.clases.vehiculo.modelo.Automoviles;
+import org.unicolombo.concesionario.clases.accesorio.modelo.Accesorios;
 
 public class BaseDatos {
     private static HashSet<Vehiculos> catalogo;

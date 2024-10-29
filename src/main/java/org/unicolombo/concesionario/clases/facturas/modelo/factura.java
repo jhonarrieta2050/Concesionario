@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.unicolombo.concesionario.clases.compras;
+package org.unicolombo.concesionario.clases.facturas.modelo;
 
 import java.time.LocalDate;
-import org.unicolombo.concesionario.clases.usuario.Usuario;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
+import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
+import org.unicolombo.concesionario.clases.vehiculo.modelo.Vehiculos;
 
 public class factura {
     private Usuario usuario;

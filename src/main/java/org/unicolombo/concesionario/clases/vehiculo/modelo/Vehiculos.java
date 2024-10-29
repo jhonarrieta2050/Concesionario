@@ -1,6 +1,6 @@
-package org.unicolombo.concesionario.clases.vehiculos;
+package org.unicolombo.concesionario.clases.vehiculo.modelo;
 
-import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
+import org.unicolombo.concesionario.clases.accesorio.modelo.Accesorios;
 
 import java.util.HashSet;
 import java.util.Objects;

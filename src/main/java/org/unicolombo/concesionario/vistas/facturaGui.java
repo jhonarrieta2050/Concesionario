@@ -5,12 +5,8 @@
 package org.unicolombo.concesionario.vistas;
 
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashSet;
-import org.unicolombo.concesionario.clases.compras.factura;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
-import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
-import org.unicolombo.concesionario.controladores.ControladorInformacion;
+
+import org.unicolombo.concesionario.clases.facturas.modelo.factura;
 
 /**
  *

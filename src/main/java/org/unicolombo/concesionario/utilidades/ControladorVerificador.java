@@ -1,7 +1,4 @@
-package org.unicolombo.concesionario.controladores;
-
-import org.unicolombo.concesionario.clases.vehiculos.Automoviles;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
+package org.unicolombo.concesionario.utilidades;
 
 import java.util.Scanner;
 

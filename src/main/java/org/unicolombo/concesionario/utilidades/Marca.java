@@ -1,4 +1,4 @@
-package org.unicolombo.concesionario.controladores;
+package org.unicolombo.concesionario.utilidades;
 
 public enum Marca {
     BWM(1000),

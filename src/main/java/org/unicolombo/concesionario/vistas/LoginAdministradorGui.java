@@ -4,8 +4,7 @@
  */
 package org.unicolombo.concesionario.vistas;
 
-import org.unicolombo.concesionario.clases.usuario.Usuario;
-import org.unicolombo.concesionario.controladores.ControladorVerificador;
+import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
 
 /**
  *

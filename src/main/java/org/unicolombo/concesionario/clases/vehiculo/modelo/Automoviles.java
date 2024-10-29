@@ -1,4 +1,4 @@
-package org.unicolombo.concesionario.clases.vehiculos;
+package org.unicolombo.concesionario.clases.vehiculo.modelo;
 
 public class Automoviles extends Vehiculos {
 

@@ -4,16 +4,16 @@
  */
 package org.unicolombo.concesionario.vistas;
 
-import org.unicolombo.concesionario.clases.usuario.Usuario;
-import org.unicolombo.concesionario.controladores.ControladorComand;
-import org.unicolombo.concesionario.controladores.ControladorVerificador;
+import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
+import org.unicolombo.concesionario.clases.usuario.comandos.UsuarioHandlerComand;
+import org.unicolombo.concesionario.utilidades.ControladorVerificador;
 
 /**
  *
  * @author 57301
  */
 public class RegistroUsuarioGui extends javax.swing.JFrame {
-    private ControladorComand comand = new ControladorComand();
+    private UsuarioHandlerComand comand = new UsuarioHandlerComand();
     private LoginUsuarioGui loginUsuarioGui;
 
     public LoginUsuarioGui getLoginUsuarioGui() {

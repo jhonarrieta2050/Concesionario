@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package org.unicolombo.concesionario.repositorio.interfaces;
+package org.unicolombo.concesionario.clases.interfaces;
 
 /**
  *
@@ -14,6 +14,5 @@ public interface ComandRepositoryInterface<T> {
     
     public void editar(T o);
     
-    public T buscarId(int id);
-    
+   
 }

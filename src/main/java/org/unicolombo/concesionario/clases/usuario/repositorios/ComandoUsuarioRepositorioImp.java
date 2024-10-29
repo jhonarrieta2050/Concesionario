@@ -2,21 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.unicolombo.concesionario.repositorio;
+package org.unicolombo.concesionario.clases.usuario.repositorios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.unicolombo.concesionario.clases.usuario.Usuario;
-import org.unicolombo.concesionario.repositorio.interfaces.ComandRepositoryInterface;
+
+import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
+import org.unicolombo.concesionario.clases.interfaces.ComandRepositoryInterface;
+import org.unicolombo.concesionario.utilidades.ObtenerConexion;
 
 /**
  *
  * @author Usuario
  */
-public class ComandRepositoryImp implements ComandRepositoryInterface<Usuario> {
+public class ComandoUsuarioRepositorioImp implements ComandRepositoryInterface<Usuario> {
 
     @Override
     public void guardar(Usuario o) {
@@ -32,7 +34,7 @@ public class ComandRepositoryImp implements ComandRepositoryInterface<Usuario> {
             stmt.execute();
             
         } catch (SQLException ex) {
-            Logger.getLogger(ComandRepositoryImp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComandoUsuarioRepositorioImp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -41,9 +43,5 @@ public class ComandRepositoryImp implements ComandRepositoryInterface<Usuario> {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public Usuario buscarId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 }

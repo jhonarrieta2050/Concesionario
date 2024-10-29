@@ -5,10 +5,9 @@
 package org.unicolombo.concesionario.vistas;
 
 import java.util.ArrayList;
-import org.unicolombo.concesionario.clases.vehiculos.Automoviles;
-import org.unicolombo.concesionario.clases.vehiculos.Vehiculos;
-import org.unicolombo.concesionario.clases.vehiculos.accesorios.Accesorios;
-import org.unicolombo.concesionario.controladores.ControladorInformacion;
+
+import org.unicolombo.concesionario.clases.accesorio.modelo.Accesorios;
+import org.unicolombo.concesionario.utilidades.ControladorInformacion;
 
 /**
  *

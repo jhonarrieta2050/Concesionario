@@ -1,4 +1,4 @@
-package org.unicolombo.concesionario.clases.vehiculos.accesorios;
+package org.unicolombo.concesionario.clases.accesorio.modelo;
 
 public class Accesorios {
     private String nombre;
