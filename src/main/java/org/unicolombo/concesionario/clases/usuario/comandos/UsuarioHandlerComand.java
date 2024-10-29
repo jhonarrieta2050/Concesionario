@@ -16,7 +16,8 @@ public class UsuarioHandlerComand {
     
     private ComandRepositoryInterface comandRepositoryInterface = new ComandoUsuarioRepositorioImp();
     
-    public void guardarUsuario(Usuario usuario){
+    public void guardarUsuario(CrearUsuarioComand usuarioComand){
+        Usuario usuario = new Usuario(usuarioComand.getNombre(), usuarioComand.getApellido(), usuarioComand.getCorreo(), usuarioComand.getContrasena());
         comandRepositoryInterface.guardar(usuario);
     }
 }

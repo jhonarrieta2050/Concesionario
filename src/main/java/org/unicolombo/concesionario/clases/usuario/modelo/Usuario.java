@@ -28,8 +28,11 @@ public class Usuario {
         this.correo = correo;
         this.contrasena = contrasena;
     }
-    
-    
+
+    public Usuario() {
+
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -86,8 +89,18 @@ public class Usuario {
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
-    
-    
-    
-     
+
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "idUsuario=" + idUsuario +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", correo='" + correo + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", cartera=" + cartera +
+                ", vehiculosEnPropiedad=" + vehiculosEnPropiedad +
+                '}';
+    }
 }

@@ -5,6 +5,12 @@
 package org.unicolombo.concesionario.vistas;
 
 
+import org.unicolombo.concesionario.clases.usuario.consultas.ConsultarUsuarioQuary;
+import org.unicolombo.concesionario.clases.usuario.consultas.UsuarioHandlerQuarys;
+import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
+
+import java.util.Optional;
+
 /**
  *
  * @author 57301
@@ -43,8 +49,8 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        CampoUser = new javax.swing.JTextField();
-        CampoContraseña = new javax.swing.JTextField();
+        correoText = new javax.swing.JTextField();
+        contrasenaText = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -79,14 +85,14 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
             }
         });
 
-        CampoUser.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        CampoUser.addActionListener(new java.awt.event.ActionListener() {
+        correoText.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        correoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoUserActionPerformed(evt);
+                correoTextActionPerformed(evt);
             }
         });
 
-        CampoContraseña.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        contrasenaText.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Ingrese su usuario");
@@ -126,8 +132,8 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CampoUser, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(correoText, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contrasenaText, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(jLabel1))
@@ -153,11 +159,11 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CampoUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(correoText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(contrasenaText, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -199,15 +205,27 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        String correo = correoText.getText();
+        String contrasena = contrasenaText.getText();
+
+        UsuarioHandlerQuarys usuarioHandlerQuarys = new UsuarioHandlerQuarys();
+
+        Optional<Usuario> usuario = usuarioHandlerQuarys.consultarUsuario(new ConsultarUsuarioQuary(correo,contrasena));
+
+        if(usuario.isEmpty()){
+            return;
+        }
+        
         opcionesDeUser.setLoginUsuarioGui(this);
         this.setVisible(false);
         opcionesDeUser.setVisible(true);
         opcionesDeUser.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void CampoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoUserActionPerformed
+    private void correoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoUserActionPerformed
+    }//GEN-LAST:event_correoTextActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         registroUsuarioGui.setLoginUsuarioGui(this);
@@ -253,8 +271,8 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CampoContraseña;
-    private javax.swing.JTextField CampoUser;
+    private javax.swing.JTextField contrasenaText;
+    private javax.swing.JTextField correoText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

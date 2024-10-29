@@ -4,13 +4,15 @@
  */
 package org.unicolombo.concesionario.clases.interfaces;
 
+import java.util.Optional;
+
 /**
  *
  * @author Usuario
  */
 public interface QuaryRepositoryInterface<T> {
     
-     public T buscarObjeto(T o);
+     public Optional<T> buscarObjeto(T o);
      
      public void objetoId(int id);
 }

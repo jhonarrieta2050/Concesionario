@@ -4,6 +4,7 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import org.unicolombo.concesionario.clases.usuario.comandos.CrearUsuarioComand;
 import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
 import org.unicolombo.concesionario.clases.usuario.comandos.UsuarioHandlerComand;
 import org.unicolombo.concesionario.utilidades.ControladorVerificador;
@@ -241,7 +242,7 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
             return;
         }
         
-        comand.guardarUsuario(new Usuario(nombre, apellido, correo, contrasena));
+        comand.guardarUsuario(new CrearUsuarioComand(nombre, apellido, correo, contrasena));
         
         this.setVisible(false);
         loginUsuarioGui.setVisible(true);
