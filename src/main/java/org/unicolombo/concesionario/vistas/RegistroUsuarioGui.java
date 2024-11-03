@@ -4,9 +4,12 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.unicolombo.concesionario.clases.usuario.comandos.CrearUsuarioComand;
 import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
 import org.unicolombo.concesionario.clases.usuario.comandos.UsuarioHandlerComand;
+import org.unicolombo.concesionario.utilidades.ControladorValidacion;
 import org.unicolombo.concesionario.utilidades.ControladorVerificador;
 
 /**
@@ -20,10 +23,23 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     public LoginUsuarioGui getLoginUsuarioGui() {
         return loginUsuarioGui;
     }
+    
+    private void validarEmail(){
+    ControladorValidacion controlador = new ControladorValidacion();
+    }
 
     public void setLoginUsuarioGui(LoginUsuarioGui loginUsuarioGui) {
         this.loginUsuarioGui = loginUsuarioGui;
     }
+    
+    public class ValidacionTexto{
+    public static boolean ValidarLetras(String texto){
+    Pattern patron = Pattern.compile("[a-zA-Z]+");
+    Matcher matcher = patron.matcher(texto);
+    return matcher.matches();
+    }
+    }
+    
     
     
     
@@ -237,6 +253,13 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
         String contrasena = contrasenaText.getText();
         
         boolean pass = ControladorVerificador.verificarUsuario(nombre, apellido, correo, contrasena);
+        if(ValidacionTexto.ValidarLetras(nombre)){
+        }else{
+        errorText.setText("Nombre invalido");
+        }
+        
+        
+        
         if(!pass){
             errorText.setText("Datos invalidos");
             return;
