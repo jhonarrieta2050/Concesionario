@@ -4,8 +4,12 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import org.unicolombo.concesionario.clases.usuario.comandos.CrearUsuarioComand;
 import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
 import org.unicolombo.concesionario.clases.usuario.comandos.UsuarioHandlerComand;
@@ -24,20 +28,34 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
         return loginUsuarioGui;
     }
     
-    private void validarEmail(){
-    ControladorValidacion controlador = new ControladorValidacion();
+    private void mostrarMensajeError(String mensaje) {
+        JOptionPane optionPane = new JOptionPane(mensaje, JOptionPane.ERROR_MESSAGE);
+        JDialog dialog = optionPane.createDialog(null, "Error");
+        dialog.setModal(true); // Hace que el diálogo sea modal
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        dialog.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dialog.dispose();
+            }
+        });
+        //dialog.setVisible(true);  
+
     }
 
     public void setLoginUsuarioGui(LoginUsuarioGui loginUsuarioGui) {
         this.loginUsuarioGui = loginUsuarioGui;
     }
     
-    public class ValidacionTexto{
-    public static boolean ValidarLetras(String texto){
-    Pattern patron = Pattern.compile("[a-zA-Z]+");
-    Matcher matcher = patron.matcher(texto);
-    return matcher.matches();
+    
+    private boolean validarCorreo(String correo) {
+        String patronCorreo = "^[\\w-\\.]+@([\\w-]+\\.)+[a-zA-Z]{2,4}$";
+        return Pattern.compile(patronCorreo).matcher(correo).matches();
     }
+    
+    private boolean validarContrasena(String contrasena) {
+        String patronContrasena = "^(?=.[A-Z])(?=.[!@#$%^&*(),.?;':{}|<>]).+$";
+        return Pattern.compile(patronContrasena).matcher(contrasena).matches();
     }
     
     
@@ -253,17 +271,17 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
         String contrasena = contrasenaText.getText();
         
         boolean pass = ControladorVerificador.verificarUsuario(nombre, apellido, correo, contrasena);
-        if(ValidacionTexto.ValidarLetras(nombre)){
-        }else{
-        errorText.setText("Nombre invalido");
-        }
-        
-        
-        
-        if(!pass){
-            errorText.setText("Datos invalidos");
-            return;
-        }
+        //Pattern patron = Pattern.compile(".+@.+");
+        //Matcher matcher = patron.matcher(correo);
+       if(correo.isEmpty()){
+       mostrarMensaje(this, "El campo correo no puede estar vacio");
+       }else if(!validarCorreo(correo)){
+       mostrarMensaje(this, "El correo no tiene un formato valido");
+       }else if(contrasena.isEmpty()){
+       mostrarMensaje(this, "La contraseña no puede estar vacia");
+       }else if(validarContrasena(contrasena)){
+       mostrarMensaje(this, "La contraseña debe tener una mayuscula y un caracter especial");
+       }
         
         comand.guardarUsuario(new CrearUsuarioComand(nombre, apellido, correo, contrasena));
         
