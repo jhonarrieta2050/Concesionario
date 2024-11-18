@@ -4,6 +4,7 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import java.awt.Color;
 import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
 
 /**
@@ -188,7 +189,18 @@ public class LoginAdministradorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+        String nombre = NombreText.getName();
+        String dni = DniText.getText();
+        if(nombre.isEmpty()){
+        NombreText.setBackground(Color.red);
+        }else{
+        NombreText.setBackground(Color.white);
+        }
+        if(dni.isEmpty()){
+        DniText.setBackground(Color.red);
+        }else{
+        DniText.setBackground(Color.white);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

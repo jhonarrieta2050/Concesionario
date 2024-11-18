@@ -5,11 +5,13 @@
 package org.unicolombo.concesionario.vistas;
 
 
+import java.awt.Color;
 import org.unicolombo.concesionario.clases.usuario.consultas.ConsultarUsuarioQuary;
 import org.unicolombo.concesionario.clases.usuario.consultas.UsuarioHandlerQuarys;
 import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
 
 import java.util.Optional;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -93,6 +95,11 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
         });
 
         contrasenaText.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        contrasenaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contrasenaTextActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Ingrese su usuario");
@@ -224,7 +231,13 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void correoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoTextActionPerformed
-        // TODO add your handling code here:
+    String correo = correoText.getText();
+        if(correo.isEmpty()){
+        correoText.setBackground(Color.red);
+        JOptionPane.showMessageDialog(this, "El campo usuario no puede estar vacio!");
+        }else{
+        correoText.setBackground(Color.white);
+        }
     }//GEN-LAST:event_correoTextActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -233,6 +246,16 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
         registroUsuarioGui.setVisible(true);
         registroUsuarioGui.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void contrasenaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaTextActionPerformed
+    String contrasena = contrasenaText.getText();
+    if(contrasena.isEmpty()){
+    contrasenaText.setBackground(Color.red);
+    JOptionPane.showMessageDialog(this, "El campo contraseña no puede estar vacio!");
+    }else{
+    contrasenaText.setBackground(Color.white);
+    }
+    }//GEN-LAST:event_contrasenaTextActionPerformed
 
     /**
      * @param args the command line arguments

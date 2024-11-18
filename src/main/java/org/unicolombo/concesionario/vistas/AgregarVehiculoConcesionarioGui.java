@@ -4,6 +4,8 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import org.unicolombo.concesionario.clases.vehiculo.modelo.Automoviles;
 import org.unicolombo.concesionario.utilidades.ControladorInformacion;
 import org.unicolombo.concesionario.utilidades.ControladorVerificador;
@@ -65,30 +67,55 @@ public class AgregarVehiculoConcesionarioGui extends javax.swing.JFrame {
 
         PlacaText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         PlacaText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PlacaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlacaTextActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel5.setText("Cilindrado");
 
         CilindradoText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         CilindradoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CilindradoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CilindradoTextActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 14)); // NOI18N
         jLabel1.setText("Marca");
 
         MarcaText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         MarcaText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MarcaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MarcaTextActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel2.setText("Modelo");
 
         ModeloText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         ModeloText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ModeloText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModeloTextActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel3.setText("Precio");
 
         PrecioText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         PrecioText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PrecioText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrecioTextActionPerformed(evt);
+            }
+        });
 
         boton.setBackground(new java.awt.Color(204, 204, 204));
         boton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -228,11 +255,33 @@ public class AgregarVehiculoConcesionarioGui extends javax.swing.JFrame {
         String Precio = PrecioText.getText();
         
         boolean pass = ControladorVerificador.verificarUsuario(modelo, Precio, marca, cilindraje);
-        
-        if(!pass){
-            Error.setText("Datos invalidos");
-            return;
+        if(placa.isEmpty()){
+        PlacaText.setBackground(Color.red);
+        JOptionPane.showMessageDialog(this, "");
+        }else{
+        PlacaText.setBackground(Color.white);
         }
+         if(marca.isEmpty()){
+        MarcaText.setBackground(Color.red);
+        }else{
+        MarcaText.setBackground(Color.white);
+        }
+        if(cilindraje.isEmpty()){
+        CilindradoText.setBackground(Color.red);
+        }else{
+        CilindradoText.setBackground(Color.white);
+        }
+        if(Precio.isEmpty()){
+        PrecioText.setBackground(Color.red);
+        }else{
+        PrecioText.setBackground(Color.white);
+        }
+        if(modelo.isEmpty()){
+        ModeloText.setBackground(Color.red);
+        }else{
+        ModeloText.setBackground(Color.white);
+        }
+        
         
         ControladorInformacion.guardarVehiculo(new Automoviles(marca,modelo,placa,cilindraje,Double.parseDouble(Precio),LoginAdministradorGui.vendedorActual.getNombre()));
         
@@ -247,6 +296,26 @@ public class AgregarVehiculoConcesionarioGui extends javax.swing.JFrame {
        this.setVisible(false);
        formulario.setVisible(true);
     }//GEN-LAST:event_botonActionPerformed
+
+    private void PlacaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlacaTextActionPerformed
+
+    }//GEN-LAST:event_PlacaTextActionPerformed
+
+    private void MarcaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MarcaTextActionPerformed
+    
+    }//GEN-LAST:event_MarcaTextActionPerformed
+
+    private void CilindradoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CilindradoTextActionPerformed
+
+    }//GEN-LAST:event_CilindradoTextActionPerformed
+
+    private void PrecioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioTextActionPerformed
+    // TODO add your handling code here:
+    }//GEN-LAST:event_PrecioTextActionPerformed
+
+    private void ModeloTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModeloTextActionPerformed
+    // TODO add your handling code here:
+    }//GEN-LAST:event_ModeloTextActionPerformed
 
     /**
      * @param args the command line arguments
