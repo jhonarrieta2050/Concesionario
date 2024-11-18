@@ -4,6 +4,7 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.regex.Matcher;
@@ -28,7 +29,7 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
         return loginUsuarioGui;
     }
     
-    private void mostrarMensajeError(String mensaje) {
+    private void mostrarMensajeError(RegistroUsuarioGui aThis, String mensaje) {
         JOptionPane optionPane = new JOptionPane(mensaje, JOptionPane.ERROR_MESSAGE);
         JDialog dialog = optionPane.createDialog(null, "Error");
         dialog.setModal(true); // Hace que el diálogo sea modal
@@ -48,15 +49,15 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     }
     
     
-    private boolean validarCorreo(String correo) {
-        String patronCorreo = "^[\\w-\\.]+@([\\w-]+\\.)+[a-zA-Z]{2,4}$";
-        return Pattern.compile(patronCorreo).matcher(correo).matches();
-    }
+    public static boolean validarCorreo(String correo) {
+    String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[a-zA-Z]{2,4}$";
+    return correo.matches(regex);
+}
     
-    private boolean validarContrasena(String contrasena) {
-        String patronContrasena = "^(?=.[A-Z])(?=.[!@#$%^&*(),.?;':{}|<>]).+$";
-        return Pattern.compile(patronContrasena).matcher(contrasena).matches();
-    }
+    public static boolean validarContrasena(String contrasena) {
+    String regex = "^(?=.[A-Z])(?=.[!@#$%^&()_+])[a-zA-Z0-9!@#$%^&()_+]{8,}$";
+    return contrasena.matches(regex);
+}
     
     
     
@@ -128,11 +129,21 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
         jLabel5.setText("Correo");
 
         correoText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        correoText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                correoTextFocusLost(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Contraseña");
 
         contrasenaText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        contrasenaText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                contrasenaTextFocusLost(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -271,17 +282,18 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
         String contrasena = contrasenaText.getText();
         
         boolean pass = ControladorVerificador.verificarUsuario(nombre, apellido, correo, contrasena);
-        //Pattern patron = Pattern.compile(".+@.+");
-        //Matcher matcher = patron.matcher(correo);
-       if(correo.isEmpty()){
-       mostrarMensaje(this, "El campo correo no puede estar vacio");
-       }else if(!validarCorreo(correo)){
-       mostrarMensaje(this, "El correo no tiene un formato valido");
-       }else if(contrasena.isEmpty()){
-       mostrarMensaje(this, "La contraseña no puede estar vacia");
-       }else if(validarContrasena(contrasena)){
-       mostrarMensaje(this, "La contraseña debe tener una mayuscula y un caracter especial");
-       }
+      if(nombre.isEmpty()){
+      nombreText.setBackground(Color.red);
+      JOptionPane.showMessageDialog(this, "Los Campos no pueden estar Vacios.");
+      }else{
+      nombreText.setBackground(Color.white);
+      }
+      
+      if(apellido.isEmpty()){
+      apellidoText.setBackground(Color.red);
+      }else{
+      apellidoText.setBackground(Color.white);
+      }
         
         comand.guardarUsuario(new CrearUsuarioComand(nombre, apellido, correo, contrasena));
         
@@ -290,6 +302,26 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
         loginUsuarioGui.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void correoTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_correoTextFocusLost
+    String correo = correoText.getText();
+    if(!validarCorreo(correo)){
+    correoText.setBackground(Color.red);
+    JOptionPane.showMessageDialog(this, "El correo no es valido");
+    }else{
+    correoText.setBackground(Color.white);
+    } 
+    }//GEN-LAST:event_correoTextFocusLost
+
+    private void contrasenaTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaTextFocusLost
+     String contrasena = contrasenaText.getText();
+     if(!validarContrasena(contrasena)){
+     contrasenaText.setBackground(Color.red);
+     JOptionPane.showMessageDialog(this, "La contraseña debe tener una mayuscula y un caracter especial");
+     }else{
+     contrasenaText.setBackground(Color.white);
+     }
+    }//GEN-LAST:event_contrasenaTextFocusLost
 
     /**
      * @param args the command line arguments
