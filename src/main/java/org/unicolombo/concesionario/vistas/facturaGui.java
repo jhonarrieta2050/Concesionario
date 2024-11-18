@@ -6,7 +6,7 @@ package org.unicolombo.concesionario.vistas;
 
 import java.time.format.DateTimeFormatter;
 
-import org.unicolombo.concesionario.clases.facturas.modelo.factura;
+import org.unicolombo.concesionario.Dominio.Modelos.factura;
 
 /**
  *

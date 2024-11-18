@@ -1,19 +1,19 @@
 package org.unicolombo.concesionario.utilidades;
 
 import java.util.ArrayList;
-import org.unicolombo.concesionario.clases.vehiculo.modelo.Vehiculos;
+import org.unicolombo.concesionario.Dominio.Modelos.Vehiculos;
 
 import java.util.HashSet;
 import java.util.Optional;
-import org.unicolombo.concesionario.clases.facturas.modelo.factura;
-import org.unicolombo.concesionario.clases.accesorio.modelo.Accesorios;
-import org.unicolombo.concesionario.clases.interfaces.ComandRepositoryInterface;
-import org.unicolombo.concesionario.clases.interfaces.QuaryRepositoryInterface;
+import org.unicolombo.concesionario.Dominio.Modelos.factura;
+import org.unicolombo.concesionario.Dominio.Modelos.Accesorios;
+import org.unicolombo.concesionario.negocio.Interface.Repositorios.Comandos.ComandosBasicosInterface;
+import org.unicolombo.concesionario.negocio.Interface.Repositorios.Consultas.ConsultasBasicasInterfaces;
 
 public class ControladorInformacion {
     
-    private ComandRepositoryInterface comandRepositoryInterface;
-    private QuaryRepositoryInterface quaryRepositoryInterface;
+    private ComandosBasicosInterface comandRepositoryInterface;
+    private ConsultasBasicasInterfaces quaryRepositoryInterface;
     
     
     

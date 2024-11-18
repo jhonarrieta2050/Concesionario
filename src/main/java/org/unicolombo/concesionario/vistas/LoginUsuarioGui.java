@@ -6,9 +6,9 @@ package org.unicolombo.concesionario.vistas;
 
 
 import java.awt.Color;
-import org.unicolombo.concesionario.clases.usuario.consultas.ConsultarUsuarioQuary;
-import org.unicolombo.concesionario.clases.usuario.consultas.UsuarioHandlerQuarys;
-import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
+import org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.Dto.ConsultarUsuarioQuary;
+import org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.UsuarioHandlerQuarys;
+import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
 
 import java.util.Optional;
 import javax.swing.JOptionPane;

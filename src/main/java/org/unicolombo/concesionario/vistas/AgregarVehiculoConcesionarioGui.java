@@ -6,7 +6,7 @@ package org.unicolombo.concesionario.vistas;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import org.unicolombo.concesionario.clases.vehiculo.modelo.Automoviles;
+import org.unicolombo.concesionario.Dominio.Modelos.Automoviles;
 import org.unicolombo.concesionario.utilidades.ControladorInformacion;
 import org.unicolombo.concesionario.utilidades.ControladorVerificador;
 

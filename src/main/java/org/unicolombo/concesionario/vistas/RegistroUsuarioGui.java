@@ -7,14 +7,10 @@ package org.unicolombo.concesionario.vistas;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import org.unicolombo.concesionario.clases.usuario.comandos.CrearUsuarioComand;
-import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
-import org.unicolombo.concesionario.clases.usuario.comandos.UsuarioHandlerComand;
-import org.unicolombo.concesionario.utilidades.ControladorValidacion;
+import org.unicolombo.concesionario.negocio.Handlers.Comandos.Usuario.Dto.CrearUsuarioComand;
+import org.unicolombo.concesionario.negocio.Handlers.Comandos.Usuario.UsuarioHandlerComand;
 import org.unicolombo.concesionario.utilidades.ControladorVerificador;
 
 /**

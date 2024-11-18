@@ -6,7 +6,7 @@ package org.unicolombo.concesionario.vistas;
 
 import java.util.ArrayList;
 
-import org.unicolombo.concesionario.clases.accesorio.modelo.Accesorios;
+import org.unicolombo.concesionario.Dominio.Modelos.Accesorios;
 import org.unicolombo.concesionario.utilidades.ControladorInformacion;
 
 /**

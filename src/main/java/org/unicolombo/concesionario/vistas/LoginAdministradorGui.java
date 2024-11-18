@@ -5,7 +5,7 @@
 package org.unicolombo.concesionario.vistas;
 
 import java.awt.Color;
-import org.unicolombo.concesionario.clases.usuario.modelo.Usuario;
+import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
 
 /**
  *
