@@ -6,6 +6,10 @@ package org.unicolombo.concesionario.vistas;
 
    
 public class OpcionesDeUser extends javax.swing.JFrame {
+
+    private static void setRecargaDeSaldo(OpcionesDeUser aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     private LoginUsuarioGui loginUsuarioGui;
     private OpcionesVehiculosCompraGui opcionesVehiculosCompraGui = new OpcionesVehiculosCompraGui();
@@ -41,6 +45,7 @@ public class OpcionesDeUser extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        RecargaDeSaldo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +83,15 @@ public class OpcionesDeUser extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
         jLabel3.setText("De comprador");
 
+        RecargaDeSaldo.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
+        RecargaDeSaldo.setText("Recarga Saldo");
+        RecargaDeSaldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        RecargaDeSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RecargaDeSaldoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -99,9 +113,10 @@ public class OpcionesDeUser extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(70, 70, 70))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                            .addComponent(RecargaDeSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(119, 119, 119))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -115,11 +130,13 @@ public class OpcionesDeUser extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2)
-                .addGap(55, 55, 55)
+                .addGap(31, 31, 31)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(RecargaDeSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -162,8 +179,17 @@ public class OpcionesDeUser extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    // TODO add your handling code here:
+    VenderVehiculoGUI vender = new VenderVehiculoGUI();
+    vender.setVisible(true);
+    this.dispose();    // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void RecargaDeSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargaDeSaldoActionPerformed
+    RecargaDeSaldo vv = new RecargaDeSaldo();
+    vv.setVisible(true);
+    this.dispose();
+    
+    }//GEN-LAST:event_RecargaDeSaldoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +227,7 @@ public class OpcionesDeUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton RecargaDeSaldo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

@@ -193,7 +193,7 @@
             <Component class="javax.swing.JLabel" name="Bien">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Emoji" size="24" style="1"/>
+                  <Font name="Segoe Print" size="24" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bienvenido"/>
               </Properties>

@@ -114,7 +114,7 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Tabla);
 
-        Bien.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
+        Bien.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
         Bien.setText("Bienvenido");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

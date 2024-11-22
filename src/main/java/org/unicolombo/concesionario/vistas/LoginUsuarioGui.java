@@ -220,11 +220,9 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
         String correo = correoText.getText();
         String contrasena = contrasenaText.getText();
 
-        Optional<Usuario> usuario = obtenerUsuarioControlador.obtenerUsuario(correo, contrasena);
-
-        if(usuario.isEmpty()){
-            System.out.println("No se a encontrado el usuario");
-            return;
+        if(correo.isEmpty()||contrasena.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Ningun campo puede estar vacio");
+        return;
         }
         
         opcionesDeUser.setLoginUsuarioGui(this);
