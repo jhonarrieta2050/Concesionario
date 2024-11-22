@@ -56,7 +56,7 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(76, 175, 255));
+        jPanel1.setBackground(new java.awt.Color(243, 209, 65));
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N

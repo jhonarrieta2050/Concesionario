@@ -60,7 +60,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="af" red="4c" type="rgb"/>
+              <Color blue="41" green="d1" red="f3" type="rgb"/>
             </Property>
           </Properties>
 
@@ -86,6 +86,11 @@
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="jPanel3">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b3" green="d5" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
