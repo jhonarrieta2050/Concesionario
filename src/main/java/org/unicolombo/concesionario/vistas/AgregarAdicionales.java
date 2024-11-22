@@ -6,7 +6,10 @@ package org.unicolombo.concesionario.vistas;
 
 import java.util.ArrayList;
 
+import org.unicolombo.concesionario.Controladores.Implementaciones.Accesorios.ObtenerAccesoriosControlador;
+import org.unicolombo.concesionario.Controladores.Interfaces.Accesorios.IobtenerAccesoriosControlador;
 import org.unicolombo.concesionario.Dominio.Modelos.Accesorios;
+import org.unicolombo.concesionario.Dominio.Modelos.Vehiculos;
 import org.unicolombo.concesionario.utilidades.ControladorInformacion;
 
 /**
@@ -15,12 +18,18 @@ import org.unicolombo.concesionario.utilidades.ControladorInformacion;
  */
 public class AgregarAdicionales extends javax.swing.JFrame {
 
-   
+   private ConfirmarPagoGui pago;
+   private Vehiculos vehiculo;
+   private IobtenerAccesoriosControlador obtenerAccesoriosControlador = new ObtenerAccesoriosControlador();
 
-    
+    public void setPago(ConfirmarPagoGui pago) {
+        this.pago = pago;
+    }
 
+    public void setVehiculo(Vehiculos vehiculo) {
+        this.vehiculo = vehiculo;
+    }
    
-    
     public AgregarAdicionales() {
         initComponents();
     }
@@ -158,7 +167,7 @@ public class AgregarAdicionales extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) Tabla.getModel();
-        ArrayList<Accesorios> accesorios = ControladorInformacion.ObtenerAccesorios();
+        ArrayList<Accesorios> accesorios = obtenerAccesoriosControlador.obtenerAccesorios();
         
         model.setRowCount(0);
         
@@ -179,13 +188,17 @@ public class AgregarAdicionales extends javax.swing.JFrame {
             double precio = (double) Tabla.getValueAt(selectedRow, 2);
             
             Accesorios accesorios = new Accesorios(nombre,descripcion,precio);
-            this.setVisible(false);
+            vehiculo.agregarAdicionales(accesorios);
         }
-        
+            this.setVisible(false);
+            pago.setVisible(true);
+            pago.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        this.setVisible(false);
+        pago.setVisible(true);
+        pago.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

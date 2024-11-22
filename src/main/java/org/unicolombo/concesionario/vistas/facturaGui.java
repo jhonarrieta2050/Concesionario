@@ -14,9 +14,13 @@ import org.unicolombo.concesionario.Dominio.Modelos.factura;
  */
 public class facturaGui extends javax.swing.JFrame {
 
-    /**
-     * Creates new form facturaGui
-     */
+    private facturaGui factura;
+    public void setFactura(facturaGui factura) {
+        this.factura = factura;
+    }
+    
+    
+    
     public facturaGui() {
         initComponents();
     }
