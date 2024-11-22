@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.Dto;
+package org.unicolombo.concesionario.Infraestructura.Persistencia.Repositorio.Comandos.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
 import org.unicolombo.concesionario.negocio.Interface.Repositorios.Comandos.ComandosBasicosInterface;
-import org.unicolombo.concesionario.utilidades.ObtenerConexion;
+import org.unicolombo.concesionario.Infraestructura.Persistencia.Datos.ObtenerConexion;
 
 /**
  *
@@ -24,7 +24,7 @@ public class ComandoUsuarioRepositorioImp implements ComandosBasicosInterface<Us
     public void guardar(Usuario o) {
         
         try(Connection cx = ObtenerConexion.connection();
-            PreparedStatement stmt = cx.prepareStatement("INSERT INTO usuarios (nombre, apellido, correo, contrasena) VALUES (?, ?, ?, ?) ")){
+            PreparedStatement stmt = cx.prepareStatement("INSERT INTO usuarios (nombre, apellido, correo, contrasena,cartera) VALUES (?, ?, ?, ?,0.0) ")){
             
             stmt.setString(1, o.getNombre());
             stmt.setString(2, o.getApellido());
@@ -32,9 +32,10 @@ public class ComandoUsuarioRepositorioImp implements ComandosBasicosInterface<Us
             stmt.setString(4, o.getContrasena());
             
             stmt.execute();
-            
+            System.out.println("si llego");
         } catch (SQLException ex) {
             Logger.getLogger(ComandoUsuarioRepositorioImp.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Hubo un error");
         }
     }
 

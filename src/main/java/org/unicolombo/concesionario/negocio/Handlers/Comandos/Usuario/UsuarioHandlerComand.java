@@ -5,7 +5,7 @@
 package org.unicolombo.concesionario.negocio.Handlers.Comandos.Usuario;
 
 import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
-import org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.Dto.ComandoUsuarioRepositorioImp;
+import org.unicolombo.concesionario.Infraestructura.Persistencia.Repositorio.Comandos.Usuario.ComandoUsuarioRepositorioImp;
 import org.unicolombo.concesionario.negocio.Interface.Repositorios.Comandos.ComandosBasicosInterface;
 import org.unicolombo.concesionario.negocio.Handlers.Comandos.Usuario.Dto.CrearUsuarioComand;
 import org.unicolombo.concesionario.negocio.Interface.Comandos.Usuario.IcrearUsuarioHandlerComand;

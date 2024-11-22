@@ -30,6 +30,9 @@ public abstract class Vehiculos {
         precio += accesorios.getPrecio();
     }
 
+    public Vehiculos() {
+    }
+
     @Override
     public String toString() {
         return "Vehiculos{" +
@@ -83,6 +86,22 @@ public abstract class Vehiculos {
 
     public void setDistribuidor(String distribuidor) {
         this.distribuidor = distribuidor;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setAdicionales(HashSet<Accesorios> adicionales) {
+        this.adicionales = adicionales;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     @Override
