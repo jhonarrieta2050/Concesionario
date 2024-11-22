@@ -180,9 +180,8 @@ public class AgregarAdicionales extends javax.swing.JFrame {
             
             Accesorios accesorios = new Accesorios(nombre,descripcion,precio);
             this.setVisible(false);
-        }else{
-            Bien.setText("Debe elegir un accesorio");
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -45,7 +45,7 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     }
     
     
-    public static boolean validarCorreo(String correo) {
+    private boolean validarCorreo(String correo) {
     String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[a-zA-Z]{2,4}$";
     return correo.matches(regex);
 }
@@ -287,21 +287,19 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
         String correo = correoText.getText();
         String contrasena = contrasenaText.getText();
         
-        boolean pass = ControladorVerificador.verificarUsuario(nombre, apellido, correo, contrasena);
-      if(nombre.isEmpty()){
-      nombreText.setBackground(Color.red);
-      JOptionPane.showMessageDialog(this, "Los Campos no pueden estar Vacios.");
+        //boolean pass = ControladorVerificador.verificarUsuario(nombre, apellido, correo, contrasena);
+      if(nombre.isEmpty()||apellido.isEmpty()||correo.isEmpty()||contrasena.isEmpty()){
+      JOptionPane.showMessageDialog(this, "Ningun campo puede estar vacio");
+      return;
+      }else if(!validarCorreo(correo)){
+      correoText.setBackground(Color.red);
+      JOptionPane.showMessageDialog(this, "El correo debe tener un @");
+      return;
       }else{
-      nombreText.setBackground(Color.white);
-      }
-      
-      if(apellido.isEmpty()){
-      apellidoText.setBackground(Color.red);
-      }else{
-      apellidoText.setBackground(Color.white);
+      comand.guardarUsuario(new CrearUsuarioComand(nombre, apellido, correo, contrasena));
       }
         
-        comand.guardarUsuario(new CrearUsuarioComand(nombre, apellido, correo, contrasena));
+        //comand.guardarUsuario(new CrearUsuarioComand(nombre, apellido, correo, contrasena));
         
         this.setVisible(false);
         loginUsuarioGui.setVisible(true);
@@ -310,23 +308,11 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void correoTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_correoTextFocusLost
-    String correo = correoText.getText();
-    if(!validarCorreo(correo)){
-    correoText.setBackground(Color.red);
-    JOptionPane.showMessageDialog(this, "El correo no es valido");
-    }else{
-    correoText.setBackground(Color.white);
-    } 
+
     }//GEN-LAST:event_correoTextFocusLost
 
     private void contrasenaTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaTextFocusLost
-     String contrasena = contrasenaText.getText();
-     if(!validarContrasena(contrasena)){
-     contrasenaText.setBackground(Color.red);
-     JOptionPane.showMessageDialog(this, "La contraseña debe tener una mayuscula y un caracter especial");
-     }else{
-     contrasenaText.setBackground(Color.white);
-     }
+
     }//GEN-LAST:event_contrasenaTextFocusLost
 
     /**

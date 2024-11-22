@@ -31,7 +31,10 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
         this.principalLoginGui = principalLoginGui;
     }
     
-    
+    private boolean validarCorreo(String correo) {
+    String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[a-zA-Z]{2,4}$";
+    return correo.matches(regex);
+}
     
     public LoginUsuarioGui() {
         initComponents();
@@ -224,8 +227,12 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
 
         Optional<Usuario> usuario = usuarioHandlerQuarys.consultarUsuario(new ConsultarUsuarioQuary(correo,contrasena));
 
-        if(usuario.isEmpty()){
-            return;
+        if(correo.isEmpty()||contrasena.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Ningun campo puede estar vacio");
+        return;
+        }else if(!validarCorreo(correo)){
+        JOptionPane.showMessageDialog(this, "El correo debe contener un @");
+        return;
         }
         
         opcionesDeUser.setLoginUsuarioGui(this);
@@ -235,13 +242,7 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void correoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoTextActionPerformed
-    String correo = correoText.getText();
-        if(correo.isEmpty()){
-        correoText.setBackground(Color.red);
-        JOptionPane.showMessageDialog(this, "El campo usuario no puede estar vacio!");
-        }else{
-        correoText.setBackground(Color.white);
-        }
+   
     }//GEN-LAST:event_correoTextActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -252,13 +253,7 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void contrasenaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaTextActionPerformed
-    String contrasena = contrasenaText.getText();
-    if(contrasena.isEmpty()){
-    contrasenaText.setBackground(Color.red);
-    JOptionPane.showMessageDialog(this, "El campo contraseña no puede estar vacio!");
-    }else{
-    contrasenaText.setBackground(Color.white);
-    }
+
     }//GEN-LAST:event_contrasenaTextActionPerformed
 
     /**
