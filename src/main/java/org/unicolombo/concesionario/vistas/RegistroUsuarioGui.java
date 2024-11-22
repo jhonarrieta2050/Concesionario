@@ -98,9 +98,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(76, 175, 255));
+        jPanel1.setBackground(new java.awt.Color(243, 209, 65));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 213, 179));
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
 
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
