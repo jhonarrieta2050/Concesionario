@@ -19,7 +19,7 @@ import org.unicolombo.concesionario.utilidades.ControladorInformacion;
 public class ListadoVehiculosGui extends javax.swing.JFrame {
 
     
-    
+    private ConfirmarPagoGui pago = new ConfirmarPagoGui();
     private OpcionesVehiculosCompraGui opcionesVehiculosCompraGui;
     private IobtenerVehiculoControlador vehiculoControlador = new ObtenerVehiculoControlador();
     public OpcionesVehiculosCompraGui getOpcionesVehiculosCompraGui() {
@@ -202,7 +202,7 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int selectedRow = Tabla.getSelectedRow();
-
+        
         
         if (selectedRow != -1) {
             
@@ -215,6 +215,11 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
             Vehiculos vehiculos = new Automoviles(marca,modelo,placa,cilindraje,precio,vendedor);
             
             this.setVisible(false);
+            pago.setListado(this);
+            pago.setVehiculo(vehiculos);
+            pago.setVisible(true);
+            pago.setLocationRelativeTo(null);
+            
         }else{
             Bien.setText("Debe elegir un vehiculo");
         }
