@@ -9,6 +9,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import org.unicolombo.concesionario.Controladores.Implementaciones.Usuarios.CrearUsuarioControlador;
 import org.unicolombo.concesionario.negocio.Handlers.Comandos.Usuario.Dto.CrearUsuarioComand;
 import org.unicolombo.concesionario.negocio.Handlers.Comandos.Usuario.UsuarioHandlerComand;
 import org.unicolombo.concesionario.utilidades.ControladorVerificador;
@@ -18,9 +19,9 @@ import org.unicolombo.concesionario.utilidades.ControladorVerificador;
  * @author 57301
  */
 public class RegistroUsuarioGui extends javax.swing.JFrame {
-    private UsuarioHandlerComand comand = new UsuarioHandlerComand();
+    
     private LoginUsuarioGui loginUsuarioGui;
-
+    private CrearUsuarioControlador controladorCrearUsuario = new CrearUsuarioControlador();
     public LoginUsuarioGui getLoginUsuarioGui() {
         return loginUsuarioGui;
     }
@@ -291,7 +292,7 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
       apellidoText.setBackground(Color.white);
       }
         
-        comand.guardarUsuario(new CrearUsuarioComand(nombre, apellido, correo, contrasena));
+        controladorCrearUsuario.executar(correo,contrasena,apellido,nombre);
         
         this.setVisible(false);
         loginUsuarioGui.setVisible(true);
@@ -300,23 +301,11 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void correoTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_correoTextFocusLost
-    String correo = correoText.getText();
-    if(!validarCorreo(correo)){
-    correoText.setBackground(Color.red);
-    JOptionPane.showMessageDialog(this, "El correo no es valido");
-    }else{
-    correoText.setBackground(Color.white);
-    } 
+
     }//GEN-LAST:event_correoTextFocusLost
 
     private void contrasenaTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contrasenaTextFocusLost
-     String contrasena = contrasenaText.getText();
-     if(!validarContrasena(contrasena)){
-     contrasenaText.setBackground(Color.red);
-     JOptionPane.showMessageDialog(this, "La contraseña debe tener una mayuscula y un caracter especial");
-     }else{
-     contrasenaText.setBackground(Color.white);
-     }
+
     }//GEN-LAST:event_contrasenaTextFocusLost
 
     /**

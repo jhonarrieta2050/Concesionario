@@ -6,8 +6,11 @@ package org.unicolombo.concesionario.vistas;
 
 
 import java.awt.Color;
-import org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.Dto.ConsultarUsuarioQuary;
-import org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.UsuarioHandlerQuarys;
+
+import org.unicolombo.concesionario.Controladores.Implementaciones.Usuarios.ObtenerUsuarioControlador;
+import org.unicolombo.concesionario.Controladores.Interfaces.Usuarios.IobtenerUsuarioControlador;
+import org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.Dto.ObtenerUsuarioRequest;
+import org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.ObtenerUsuarioHandlerConsulta;
 import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
 
 import java.util.Optional;
@@ -22,6 +25,7 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
     private PrincipalLoginGui principalLoginGui;
     private RegistroUsuarioGui registroUsuarioGui = new RegistroUsuarioGui();
     private OpcionesDeUser opcionesDeUser = new OpcionesDeUser();
+    private IobtenerUsuarioControlador obtenerUsuarioControlador = new ObtenerUsuarioControlador();
 
     public PrincipalLoginGui getPrincipalLoginGui() {
         return principalLoginGui;
@@ -216,11 +220,10 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
         String correo = correoText.getText();
         String contrasena = contrasenaText.getText();
 
-        UsuarioHandlerQuarys usuarioHandlerQuarys = new UsuarioHandlerQuarys();
-
-        Optional<Usuario> usuario = usuarioHandlerQuarys.consultarUsuario(new ConsultarUsuarioQuary(correo,contrasena));
+        Optional<Usuario> usuario = obtenerUsuarioControlador.obtenerUsuario(correo, contrasena);
 
         if(usuario.isEmpty()){
+            System.out.println("No se a encontrado el usuario");
             return;
         }
         

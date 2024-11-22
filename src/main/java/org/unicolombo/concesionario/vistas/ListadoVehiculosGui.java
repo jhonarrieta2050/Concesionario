@@ -5,6 +5,9 @@
 package org.unicolombo.concesionario.vistas;
 
 import java.util.HashSet;
+
+import org.unicolombo.concesionario.Controladores.Implementaciones.Vehiculo.ObtenerVehiculoControlador;
+import org.unicolombo.concesionario.Controladores.Interfaces.Vehiculo.IobtenerVehiculoControlador;
 import org.unicolombo.concesionario.Dominio.Modelos.Automoviles;
 import org.unicolombo.concesionario.Dominio.Modelos.Vehiculos;
 import org.unicolombo.concesionario.utilidades.ControladorInformacion;
@@ -18,7 +21,7 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
     
     
     private OpcionesVehiculosCompraGui opcionesVehiculosCompraGui;
-
+    private IobtenerVehiculoControlador vehiculoControlador = new ObtenerVehiculoControlador();
     public OpcionesVehiculosCompraGui getOpcionesVehiculosCompraGui() {
         return opcionesVehiculosCompraGui;
     }
@@ -185,7 +188,7 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
     javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) Tabla.getModel();
    
 
-    HashSet<Vehiculos> catalogo = ControladorInformacion.ObtenerVehiculos();
+    HashSet<Vehiculos> catalogo = vehiculoControlador.obtenerVehiculos();
     
    
     model.setRowCount(0);

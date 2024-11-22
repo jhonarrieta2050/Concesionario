@@ -1,8 +1,9 @@
-package org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.Dto;
+package org.unicolombo.concesionario.Infraestructura.Persistencia.Repositorio.Consultas.Usuario;
 
+import org.unicolombo.concesionario.Infraestructura.Persistencia.Repositorio.Comandos.Usuario.ComandoUsuarioRepositorioImp;
 import org.unicolombo.concesionario.negocio.Interface.Repositorios.Consultas.ConsultasBasicasInterfaces;
 import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
-import org.unicolombo.concesionario.utilidades.ObtenerConexion;
+import org.unicolombo.concesionario.Infraestructura.Persistencia.Datos.ObtenerConexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,12 +34,12 @@ public class ConsultaUsuarioRepositorioImp implements ConsultasBasicasInterfaces
 
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()) {
-                    usuarioEncontrado.setIdUsuario(rs.getInt("id_usuario"));
+                    usuarioEncontrado.setIdUsuario(rs.getInt("id_usuarios"));
                     usuarioEncontrado.setNombre(rs.getString("nombre"));
                     usuarioEncontrado.setApellido(rs.getString("apellido"));
                     usuarioEncontrado.setCorreo(rs.getString("correo"));
                     usuarioEncontrado.setContrasena(rs.getString("contrasena"));
-                    usuarioEncontrado.setCartera(rs.getDouble("saldo"));
+                    usuarioEncontrado.setCartera(rs.getDouble("cartera"));
 
                     System.out.println(usuarioEncontrado.toString());
                 }else{

@@ -1,10 +1,10 @@
 package org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.Dto;
 
-public class ConsultarUsuarioQuary {
+public class ObtenerUsuarioRequest {
     private String correo;
     private String contrasena;
 
-    public ConsultarUsuarioQuary(String contrasena, String correo) {
+    public ObtenerUsuarioRequest(String contrasena, String correo) {
         this.contrasena = contrasena;
         this.correo = correo;
     }
