@@ -57,7 +57,7 @@ public class AgregarAdicionales extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 204, 255));
 
-        jPanel1.setBackground(new java.awt.Color(243, 209, 65));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
         Tabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -98,7 +98,9 @@ public class AgregarAdicionales extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Tabla);
 
+        jButton3.setBackground(new java.awt.Color(69, 130, 136));
         jButton3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Ver accesorios");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +109,9 @@ public class AgregarAdicionales extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(69, 130, 136));
         jButton2.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Volver");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +120,9 @@ public class AgregarAdicionales extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(69, 130, 136));
         jButton1.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Agregar");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {

@@ -7,6 +7,8 @@ package org.unicolombo.concesionario.vistas;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import org.unicolombo.concesionario.Controladores.Implementaciones.Usuarios.CrearUsuarioControlador;
@@ -46,10 +48,12 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     }
     
     
-    public static boolean validarCorreo(String correo) {
-    String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[a-zA-Z]{2,4}$";
-    return correo.matches(regex);
-}
+    public static boolean validarCorreo(String correo){
+    String regex = "@gmail\\.com$";
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(correo);
+    return matcher.find();
+    }
     
     public static boolean validarContrasena(String contrasena) {
     String regex = "^(?=.[A-Z])(?=.[!@#$%^&()_+])[a-zA-Z0-9!@#$%^&()_+]{8,}$";
@@ -99,9 +103,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(243, 209, 65));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
-        jPanel2.setBackground(new java.awt.Color(255, 213, 179));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
@@ -142,7 +146,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(69, 130, 136));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Aceptar");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +157,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(69, 130, 136));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Volver");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -279,7 +287,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    LoginUsuarioGui us = new LoginUsuarioGui();
+    us.setVisible(true);
+    this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -291,6 +301,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
       if(nombre.isEmpty()||apellido.isEmpty()||correo.isEmpty()||contrasena.isEmpty()){
       JOptionPane.showMessageDialog(this, "Ningun campo puede estar vacio");
       return;
+      }else if(!validarCorreo(correo)){
+      JOptionPane.showMessageDialog(this, "El campo correo debe tener un @gmail.com");
+        return;
       }else{
       controladorCrearUsuario.executar(correo,contrasena,apellido,nombre);
       }
