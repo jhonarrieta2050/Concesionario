@@ -99,9 +99,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(243, 209, 65));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
-        jPanel2.setBackground(new java.awt.Color(255, 213, 179));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
@@ -142,7 +142,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(69, 130, 136));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Aceptar");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +153,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(69, 130, 136));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Volver");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -279,7 +283,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    LoginUsuarioGui us = new LoginUsuarioGui();
+    us.setVisible(true);
+    this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

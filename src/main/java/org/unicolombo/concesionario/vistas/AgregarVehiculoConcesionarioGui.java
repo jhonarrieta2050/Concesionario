@@ -59,9 +59,9 @@ public class AgregarVehiculoConcesionarioGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(243, 209, 65));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
-        jPanel2.setBackground(new java.awt.Color(255, 213, 179));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
