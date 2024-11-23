@@ -119,7 +119,9 @@ public class AgregarVehiculoConcesionarioGui extends javax.swing.JFrame {
             }
         });
 
+        boton.setBackground(new java.awt.Color(69, 130, 136));
         boton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        boton.setForeground(new java.awt.Color(255, 255, 255));
         boton.setText("Cancelar");
         boton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +130,9 @@ public class AgregarVehiculoConcesionarioGui extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton2.setBackground(new java.awt.Color(69, 130, 136));
         jToggleButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("Agregar");
         jToggleButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {

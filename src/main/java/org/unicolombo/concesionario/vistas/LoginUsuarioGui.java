@@ -14,6 +14,8 @@ import org.unicolombo.concesionario.negocio.Handlers.Consultas.Usuario.ObtenerUs
 import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
 
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,6 +35,13 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
 
     public void setPrincipalLoginGui(PrincipalLoginGui principalLoginGui) {
         this.principalLoginGui = principalLoginGui;
+    }
+    
+    public static boolean validarCorreo(String correo){
+    String regex = "@gmail\\.com$";
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(correo);
+    return matcher.find();
     }
     
     
@@ -182,6 +191,9 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
 
         if(correo.isEmpty()||contrasena.isEmpty()){
         JOptionPane.showMessageDialog(this, "Ningun campo puede estar vacio");
+        return;
+        }else if(!validarCorreo(correo)){
+        JOptionPane.showMessageDialog(this, "El campo correo debe tener un @gmail.com");
         return;
         }
 

@@ -4,6 +4,8 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +19,13 @@ public class ModificarUsuario extends javax.swing.JFrame {
      */
     public ModificarUsuario() {
         initComponents();
+    }
+    
+        public static boolean validarCorreo(String correo){
+    String regex = "@gmail\\.com$";
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(correo);
+    return matcher.find();
     }
 
     /**
@@ -207,6 +216,9 @@ public class ModificarUsuario extends javax.swing.JFrame {
     if(nombre.isEmpty()||apellido.isEmpty()
     ||correo.isEmpty()||contraseña.isEmpty()){
     JOptionPane.showMessageDialog(this, "Ningun campo puede estar vacio");
+    }else if(!validarCorreo(correo)){
+    JOptionPane.showMessageDialog(this, "El campo correo debe tener un @gmail.com");
+    return;
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
