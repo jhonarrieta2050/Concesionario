@@ -4,14 +4,34 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import org.unicolombo.concesionario.Dominio.Modelos.Factura;
+import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
 import org.unicolombo.concesionario.Dominio.Modelos.Vehiculos;
+import org.unicolombo.concesionario.utilidades.ControladorValidacion;
+import org.unicolombo.concesionario.utilidades.ControladorVerificador;
+
+import javax.swing.*;
 
 
 public class ConfirmarPagoGui extends javax.swing.JFrame {
     private AgregarAdicionales adicionales = new AgregarAdicionales();
     private ListadoVehiculosGui listado;
-    private Vehiculos vehiculo;
+    private static Vehiculos vehiculo;
+    private static Usuario usuario;
+    private static ControladorVerificador cv = new ControladorVerificador();
     private facturaGui factura = new facturaGui();
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Vehiculos getVehiculo() {
+        return vehiculo;
+    }
 
     public void setListado(ListadoVehiculosGui listado) {
         this.listado = listado;
@@ -107,16 +127,24 @@ public class ConfirmarPagoGui extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        this.setVisible(false);
        adicionales.setVisible(true);
+       adicionales.setVehiculo(vehiculo);
        adicionales.setPago(this);
        adicionales.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       this.setVisible(false);
-       factura.setFactura(factura);
-       factura.setVisible(true);
-       factura.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        if(!cv.verificarPresupuesto(vehiculo.getPrecio(),usuario.getCartera())) {
+            JOptionPane.showMessageDialog(this, "Fondos insuficientes");
+            return;
+        }
+        usuario.setCartera(usuario.getCartera() - vehiculo.getPrecio());
+        Factura factura1 = new Factura(usuario, vehiculo, vehiculo.getDistribuidor());
+        factura.colocarDatos(factura1);
+        this.setVisible(false);
+        factura.setFactura(factura);
+        factura.setVisible(true);
+        factura.setLocationRelativeTo(null);
+    }
 
     /**
      * @param args the command line arguments

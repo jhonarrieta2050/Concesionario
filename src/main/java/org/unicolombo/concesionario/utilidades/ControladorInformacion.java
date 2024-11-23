@@ -5,7 +5,7 @@ import org.unicolombo.concesionario.Dominio.Modelos.Vehiculos;
 
 import java.util.HashSet;
 import java.util.Optional;
-import org.unicolombo.concesionario.Dominio.Modelos.factura;
+import org.unicolombo.concesionario.Dominio.Modelos.Factura;
 import org.unicolombo.concesionario.Dominio.Modelos.Accesorios;
 import org.unicolombo.concesionario.negocio.Interface.Repositorios.Comandos.ComandosBasicosInterface;
 import org.unicolombo.concesionario.negocio.Interface.Repositorios.Consultas.ConsultasBasicasInterfaces;
@@ -37,7 +37,7 @@ public class ControladorInformacion {
         BaseDatos.setVehiculosSedidos(vehiculo);
     }
     
-    public static void guardarFactura(factura facturaa){
+    public static void guardarFactura(Factura facturaa){
         BaseDatos.setFacturas(facturaa);
     }
     public static void eliminarVehiculo(Vehiculos vehiculos){
