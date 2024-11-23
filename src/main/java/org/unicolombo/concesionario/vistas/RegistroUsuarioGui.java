@@ -7,6 +7,8 @@ package org.unicolombo.concesionario.vistas;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import org.unicolombo.concesionario.Controladores.Implementaciones.Usuarios.CrearUsuarioControlador;
@@ -46,10 +48,12 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
     }
     
     
-    public static boolean validarCorreo(String correo) {
-    String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[a-zA-Z]{2,4}$";
-    return correo.matches(regex);
-}
+    public static boolean validarCorreo(String correo){
+    String regex = "@gmail\\.com$";
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(correo);
+    return matcher.find();
+    }
     
     public static boolean validarContrasena(String contrasena) {
     String regex = "^(?=.[A-Z])(?=.[!@#$%^&()_+])[a-zA-Z0-9!@#$%^&()_+]{8,}$";
@@ -297,6 +301,9 @@ public class RegistroUsuarioGui extends javax.swing.JFrame {
       if(nombre.isEmpty()||apellido.isEmpty()||correo.isEmpty()||contrasena.isEmpty()){
       JOptionPane.showMessageDialog(this, "Ningun campo puede estar vacio");
       return;
+      }else if(!validarCorreo(correo)){
+      JOptionPane.showMessageDialog(this, "El campo correo debe tener un @gmail.com");
+        return;
       }else{
       controladorCrearUsuario.executar(correo,contrasena,apellido,nombre);
       }
