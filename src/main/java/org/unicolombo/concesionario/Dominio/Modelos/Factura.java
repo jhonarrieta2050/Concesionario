@@ -6,13 +6,13 @@ package org.unicolombo.concesionario.Dominio.Modelos;
 
 import java.time.LocalDate;
 
-public class factura {
+public class Factura {
     private Usuario usuario;
     private Vehiculos vehiculo;
     private LocalDate fecha;
     private String vendedor;
     
-    public factura(Usuario usuario,Vehiculos vehiculo,String vendedor){
+    public Factura(Usuario usuario, Vehiculos vehiculo, String vendedor){
         this.usuario = usuario;
         this.vehiculo = vehiculo;
         this.vendedor = vendedor;
