@@ -93,9 +93,9 @@ public class facturaGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(243, 209, 65));
+        jPanel2.setBackground(new java.awt.Color(69, 130, 136));
 
-        jPanel3.setBackground(new java.awt.Color(255, 213, 179));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setText("Volver");

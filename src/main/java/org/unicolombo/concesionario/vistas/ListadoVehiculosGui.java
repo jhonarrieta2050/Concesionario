@@ -59,9 +59,11 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(243, 209, 65));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
+        jButton1.setBackground(new java.awt.Color(69, 130, 136));
         jButton1.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Volver");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +72,9 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(69, 130, 136));
         jButton2.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Comprar");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +83,9 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(69, 130, 136));
         jButton3.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Ver catalogo");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +121,7 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Tabla);
 
         Bien.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        Bien.setForeground(new java.awt.Color(255, 255, 255));
         Bien.setText("Bienvenido");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
