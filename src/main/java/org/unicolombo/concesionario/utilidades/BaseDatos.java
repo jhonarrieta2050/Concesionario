@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.unicolombo.concesionario.Dominio.Modelos.Vehiculos;
 
 import java.util.HashSet;
-import org.unicolombo.concesionario.Dominio.Modelos.factura;
+import org.unicolombo.concesionario.Dominio.Modelos.Factura;
 import org.unicolombo.concesionario.Dominio.Modelos.Automoviles;
 import org.unicolombo.concesionario.Dominio.Modelos.Accesorios;
 
@@ -12,7 +12,7 @@ public class BaseDatos {
     private static HashSet<Vehiculos> catalogo;
     private static HashSet<Vehiculos> vehiculosSedidos;
     private static ArrayList<Accesorios> accesorios;
-    private static HashSet<factura> facturas;
+    private static HashSet<Factura> facturas;
 
     static {
         catalogo = new HashSet<>();
@@ -76,11 +76,11 @@ public class BaseDatos {
         BaseDatos.vehiculosSedidos = vehiculosSedidos;
     }
 
-    public static HashSet<factura> getFacturas() {
+    public static HashSet<Factura> getFacturas() {
         return facturas;
     }
 
-    public static void setFacturas(factura facturass) {
+    public static void setFacturas(Factura facturass) {
         facturas.add(facturass);
     }
 

@@ -4,6 +4,10 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import org.unicolombo.concesionario.Controladores.Implementaciones.Usuarios.RecargarSaldoControlador;
+import org.unicolombo.concesionario.Controladores.Interfaces.Usuarios.IrecargarSaldoControlador;
+import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
+
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -13,9 +17,25 @@ import javax.swing.JOptionPane;
  */
 public class RecargaDeSaldo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RecargaDeSaldo
-     */
+    private OpcionesDeUser opcionesDeUser;
+    private static Usuario usuario;
+    private IrecargarSaldoControlador recargarSaldoControlador = new RecargarSaldoControlador();
+    public OpcionesDeUser getOpcionesDeUser() {
+        return opcionesDeUser;
+    }
+
+    public void setOpcionesDeUser(OpcionesDeUser opcionesDeUser) {
+        this.opcionesDeUser = opcionesDeUser;
+    }
+
+    public static Usuario getUsuario() {
+        return usuario;
+    }
+
+    public static void setUsuario(Usuario usuario) {
+        RecargaDeSaldo.usuario = usuario;
+    }
+
     public RecargaDeSaldo() {
         initComponents();
     }
@@ -131,9 +151,16 @@ public class RecargaDeSaldo extends javax.swing.JFrame {
     saldoText.setBackground(Color.red);
     JOptionPane.showMessageDialog(this, "El campo no puede estar vacio");
     return;
-    }else{
-    saldoText.setBackground(Color.white);
     }
+    saldoText.setBackground(Color.white);
+
+    usuario = recargarSaldoControlador.recargarSaldo(usuario.getIdUsuario(),Double.parseDouble(saldo));
+
+    this.setVisible(false);
+    opcionesDeUser.setVisible(true);
+    opcionesDeUser.setLocationRelativeTo(null);
+
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

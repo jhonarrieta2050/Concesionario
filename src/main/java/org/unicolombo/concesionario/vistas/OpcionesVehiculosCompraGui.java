@@ -4,6 +4,8 @@
  */
 package org.unicolombo.concesionario.vistas;
 
+import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
+
 /**
  *
  * @author Usuario
@@ -12,6 +14,15 @@ public class OpcionesVehiculosCompraGui extends javax.swing.JFrame {
 
     private OpcionesDeUser opcionesDeUser;
     private ListadoVehiculosGui listadoVehiculosGui = new ListadoVehiculosGui();
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public OpcionesDeUser getOpcionesDeUser() {
         return opcionesDeUser;
@@ -177,6 +188,7 @@ public class OpcionesVehiculosCompraGui extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         listadoVehiculosGui.setOpcionesVehiculosCompraGui(this);
         this.setVisible(false);
+        listadoVehiculosGui.setUsuario(usuario);
         listadoVehiculosGui.setVisible(true);
         listadoVehiculosGui.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed

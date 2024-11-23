@@ -22,6 +22,10 @@ public class AgregarAdicionales extends javax.swing.JFrame {
    private Vehiculos vehiculo;
    private IobtenerAccesoriosControlador obtenerAccesoriosControlador = new ObtenerAccesoriosControlador();
 
+    public Vehiculos getVehiculo() {
+        return vehiculo;
+    }
+
     public void setPago(ConfirmarPagoGui pago) {
         this.pago = pago;
     }
@@ -188,7 +192,6 @@ public class AgregarAdicionales extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int selectedRow = Tabla.getSelectedRow();
 
-        
         if (selectedRow != -1) {
             
             String nombre = (String) Tabla.getValueAt(selectedRow, 0);

@@ -4,7 +4,9 @@
  */
 package org.unicolombo.concesionario.vistas;
 
-   
+
+import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
+
 public class OpcionesDeUser extends javax.swing.JFrame {
 
     private static void setRecargaDeSaldo(OpcionesDeUser aThis) {
@@ -13,6 +15,15 @@ public class OpcionesDeUser extends javax.swing.JFrame {
     
     private LoginUsuarioGui loginUsuarioGui;
     private OpcionesVehiculosCompraGui opcionesVehiculosCompraGui = new OpcionesVehiculosCompraGui();
+    private static Usuario usuario;
+    private RecargaDeSaldo recargaDeSaldo = new RecargaDeSaldo();
+    public static Usuario getUsuario() {
+        return usuario;
+    }
+
+    public static void setUsuario(Usuario usuario) {
+        OpcionesDeUser.usuario = usuario;
+    }
 
     public LoginUsuarioGui getLoginUsuarioGui() {
         return loginUsuarioGui;
@@ -218,10 +229,11 @@ public class OpcionesDeUser extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         opcionesVehiculosCompraGui.setOpcionesDeUser(this);
         this.setVisible(false);
+        opcionesVehiculosCompraGui.setUsuario(usuario);
         opcionesVehiculosCompraGui.setVisible(true);
         opcionesVehiculosCompraGui.setLocationRelativeTo(null);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     VenderVehiculoGUI vender = new VenderVehiculoGUI();
@@ -229,10 +241,12 @@ public class OpcionesDeUser extends javax.swing.JFrame {
     this.dispose();    // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void RecargaDeSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargaDeSaldoActionPerformed
-    RecargaDeSaldo vv = new RecargaDeSaldo();
-    vv.setVisible(true);
-    this.dispose();
+    private void RecargaDeSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargaDeSaldoActionPerformed;
+    recargaDeSaldo.setVisible(true);
+    recargaDeSaldo.setOpcionesDeUser(this);
+    recargaDeSaldo.setLocationRelativeTo(null);
+    this.setVisible(false);
+    recargaDeSaldo.setUsuario(usuario);
     
     }//GEN-LAST:event_RecargaDeSaldoActionPerformed
 

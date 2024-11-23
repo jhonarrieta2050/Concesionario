@@ -196,10 +196,17 @@ public class LoginUsuarioGui extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "El campo correo debe tener un @gmail.com");
         return;
         }
-        
+
+        Optional<Usuario> usuario = obtenerUsuarioControlador.obtenerUsuario(correo,contrasena);
+        if(!usuario.isPresent()){
+            JOptionPane.showMessageDialog(this, "Credenciales incorrectas");
+            return;
+        }
+
         opcionesDeUser.setLoginUsuarioGui(this);
         this.setVisible(false);
         opcionesDeUser.setVisible(true);
+        OpcionesDeUser.setUsuario(usuario.get());
         opcionesDeUser.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 

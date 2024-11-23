@@ -9,6 +9,7 @@ import java.util.HashSet;
 import org.unicolombo.concesionario.Controladores.Implementaciones.Vehiculo.ObtenerVehiculoControlador;
 import org.unicolombo.concesionario.Controladores.Interfaces.Vehiculo.IobtenerVehiculoControlador;
 import org.unicolombo.concesionario.Dominio.Modelos.Automoviles;
+import org.unicolombo.concesionario.Dominio.Modelos.Usuario;
 import org.unicolombo.concesionario.Dominio.Modelos.Vehiculos;
 import org.unicolombo.concesionario.utilidades.ControladorInformacion;
 
@@ -18,12 +19,20 @@ import org.unicolombo.concesionario.utilidades.ControladorInformacion;
  */
 public class ListadoVehiculosGui extends javax.swing.JFrame {
 
-    
+    private static Usuario usuario;
     private ConfirmarPagoGui pago = new ConfirmarPagoGui();
     private OpcionesVehiculosCompraGui opcionesVehiculosCompraGui;
     private IobtenerVehiculoControlador vehiculoControlador = new ObtenerVehiculoControlador();
     public OpcionesVehiculosCompraGui getOpcionesVehiculosCompraGui() {
         return opcionesVehiculosCompraGui;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public void setOpcionesVehiculosCompraGui(OpcionesVehiculosCompraGui opcionesVehiculosCompraGui) {
@@ -224,6 +233,7 @@ public class ListadoVehiculosGui extends javax.swing.JFrame {
             this.setVisible(false);
             pago.setListado(this);
             pago.setVehiculo(vehiculos);
+            pago.setUsuario(usuario);
             pago.setVisible(true);
             pago.setLocationRelativeTo(null);
             

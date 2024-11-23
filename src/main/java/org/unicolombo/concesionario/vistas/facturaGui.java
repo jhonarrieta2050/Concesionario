@@ -6,7 +6,7 @@ package org.unicolombo.concesionario.vistas;
 
 import java.time.format.DateTimeFormatter;
 
-import org.unicolombo.concesionario.Dominio.Modelos.factura;
+import org.unicolombo.concesionario.Dominio.Modelos.Factura;
 
 /**
  *
@@ -25,7 +25,7 @@ public class facturaGui extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void colocarDatos(factura facturas){
+    public void colocarDatos(Factura facturas){
         MarcaText.setText(facturas.getVehiculo().getMarca());
         ModeloText.setText(facturas.getVehiculo().getModelo());
         CilindradoText.setText(facturas.getVehiculo().getCilindrado());
